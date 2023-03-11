@@ -1,0 +1,38 @@
+* {
+    margin: 2px; /* Loại bỏ margin mặc định */
+    padding: 2px; /* Loại bỏ padding mặc định */
+    background-color: rgb(77, 76, 76);
+}
+
+h1 {
+    color: aqua;
+}
+
+h2 {
+    color: aqua;
+}
+
+h3 {
+    color: greenyellow;
+}
+
+a {
+    color: red;
+}
+
+p {
+    color: greenyellow;
+}
+
+li {
+    color: greenyellow;
+}
+
+button {
+    background-color: aliceblue;
+    color: purple;
+}
+
+.form {
+    color: white;
+}
