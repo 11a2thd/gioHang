@@ -36,3 +36,7 @@ button {
 .form {
     color: white;
 }
+
+#sanPham {
+    border: 30px solid rgba(0, 0, 0, 0);
+}

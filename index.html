@@ -8,21 +8,23 @@
 </head>
 <body class="body">
     <script src="main.js"></script>
-	<header>
+    <form action="/home">
         <table class="form">
             <tbody><tr>
               <th width="15%"><label class="block" for="user_name">Username</label></th>
-              <td width="85%"><input tabindex="1" type="text" name="user[name]" id="user_name"></td>
+              <td width="85%"><input tabindex="1" type="text" name="" id="user_name"></td>
             </tr>
             <tr>
               <th><label class="block" for="user_password">Password</label></th>
-              <td><input tabindex="1" type="password" name="user[password]" id="user_password"></td>
+              <td><input tabindex="1" type="password" name="" id="user_password"></td>
             </tr>
             <tr>
-              <td colspan="2"><input type="submit" name="commit" value="Login" tabindex="1" data-disable-with="Login"></td>
+              <td colspan="2"><input onclick="login()" type="submit" name="commit" value="Login" tabindex="1" data-disable-with="Login"></td>
             </tr>
           </tbody>
         </table>
+    </form>
+	<header href="/home">
 		<h1>Bán máy ảnh</h1>
 		<nav>
 			<ul>
@@ -40,29 +42,26 @@
 		<section id="products">
 			<h2>Sản phẩm</h2>
 			<ul>
-				<li id="li">
-
-					<h3>Máy ảnh Canon EOS 80D</h3>
-					<img src="https://hotlive18.me/wp-content/uploads/2022/07/anh-idol-nene-tanaka-23.jpeg" alt="Máy ảnh Canon EOS 80D" width=10%>
-					<p>Giá: 20.000.000 đ</p>
-					<button onclick="Mua()">Mua hàng</button>
-                    <h3>Máy ảnh Nikon D750</h3>
-					<img src="https://javpornpics.com/dmm/kanako-ioka/mevr00002/kanako-ioka-2.jpg" alt="Máy ảnh Nikon D750" width=10%>
-					<p>Giá: 18.000.000 đ</p>
-					<button onclick="Mua()">Mua hàng</button>
-				</li>
-				<li>
-					<h3>Máy ảnh Nikon D750</h3>
-					<img src="https://javpornpics.com/dmm/kanako-ioka/mevr00002/kanako-ioka-2.jpg" alt="Máy ảnh Nikon D750" width=10%>
-					<p>Giá: 18.000.000 đ</p>
-					<button onclick="Mua()">Mua hàng</button>
-				</li>
-				<li>
-					<h3>Máy ảnh Sony Alpha a7 III</h3>
-					<img src="https://mruffalo.com/wp-content/uploads/2021/04/Ai-Sayama-Nguoi-dep-JAV-khoe-duong-cong-body-day-kich-thich-18.jpg" alt="Máy ảnh Sony Alpha a7 III" width=10%>
-					<p>Giá: 25.000.000 đ</p>
-					<button onclick="Mua()">Mua hàng</button>
-				</li>
+				<table id="sanPham">
+                    <td align="center" id="sanPham">
+                        <h3>Máy ảnh Canon EOS 80D</h3>
+                        <img src="https://hotlive18.me/wp-content/uploads/2022/07/anh-idol-nene-tanaka-23.jpeg" alt="Máy ảnh Canon EOS 80D" width=150px>
+                        <p>Giá: 20.000.000 đ</p>
+                        <button onclick="Mua()">Mua hàng</button>
+                    </td>
+					<td align="center" id="sanPham">
+                        <h3>Máy ảnh Nikon D750</h3>
+                        <img src="https://javpornpics.com/dmm/kanako-ioka/mevr00002/kanako-ioka-2.jpg" alt="Máy ảnh Nikon D750" width=150px>
+                        <p>Giá: 18.000.000 đ</p>
+                        <button onclick="Mua()">Mua hàng</button>
+                    </td >
+                    <td align="center" id="sanPham">
+                        <h3>Máy ảnh Sony Alpha a7 III</h3>
+                        <img src="https://mruffalo.com/wp-content/uploads/2021/04/Ai-Sayama-Nguoi-dep-JAV-khoe-duong-cong-body-day-kich-thich-18.jpg" alt="Máy ảnh Sony Alpha a7 III" width=150px>
+                        <p>Giá: 25.000.000 đ</p>
+                        <button onclick="Mua()">Mua hàng</button>
+                    </td>
+                </table>
 			</ul>
 		</section>
 		<section id="contact">
