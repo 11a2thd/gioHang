@@ -40,3 +40,7 @@ button {
 #sanPham {
     border: 30px solid rgba(0, 0, 0, 0);
 }
+
+.block{
+    color: azure;
+}
