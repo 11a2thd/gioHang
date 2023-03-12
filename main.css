@@ -44,3 +44,10 @@ button {
 .block{
     color: azure;
 }
+
+.button{
+    width: 50px;
+    height: 25px;
+    color: black;
+    background-color: azure;
+}

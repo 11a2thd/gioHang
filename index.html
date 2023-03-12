@@ -8,23 +8,34 @@
 </head>
 <body class="body">
     <script src="main.js"></script>
-        <form class="login" style="display: block;">
+    <div class="sign" align="right">
+        <table>
+            <td><button onclick="login1()">Đăng nhập</button></td>
+            <td><button>Đăng ký</button></td>
+        </table>
+    </div>
+    <div class="logOut" align="right" style="display: none;">
+        <table>
+            <td><button onclick="logOut()">Đăng xuất</button></td>
+        </table>
+    </div>
+    <div class="Login" style="display: none;">
         <table>
             <tbody><tr>
-              <th width="15%"><label class="block" for="user_name">Username</label></th>
+              <th width="15%"><label class="block" for="user_name">Tài khoản</label></th>
               <td width="85%"><input tabindex="1" type="text" name="" id="user_name"></td>
             </tr>
             <tr>
-              <th><label class="block" for="user_password">Password</label></th>
+              <th><label class="block" for="user_password">Mật khấu</label></th>
               <td><input tabindex="1" type="password" name="" id="user_password"></td>
             </tr>
             <tr>
-              <td colspan="2"><input class="block" onclick="login()" type="submit" name="commit" value="Login" tabindex="1" data-disable-with="Login"></td>
+              <td><button class="button_login" onclick="login()">Đăng nhập</button></td>
             </tr>
           </tbody>
         </table>
-    </form>
-    <div  class="home" style="display: none;">
+    </div>
+    <div href="/home"  class="home" style="display: block;">
         <header>
             <h1>Bán máy ảnh</h1>
             <nav>
@@ -81,7 +92,7 @@
         </section>
         </main>
         <footer>
-            <p>© Bản quyền thuộc về trang web bán máy ảnh</p>
+            <p>© Có cái đặc cầu!!!</p>
         </footer>
     </div>
 </body>
