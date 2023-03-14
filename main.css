@@ -35,6 +35,7 @@ a {
 }
 
 p {
+    margin-top: 2px;
     color: greenyellow;
 }
 
@@ -78,4 +79,5 @@ button {
 .Login{
     margin-top: 100px;
 }
+
 

@@ -79,14 +79,18 @@ function logOut(){
 }
 
 function test(){
-	var arrs = []
-	if(document.getElementById("ten_sp").value !== '' && document.getElementById("link_anh").value !== '' && document.getElementById("so_luong").value !== '') {
-		arrs.push({
-			name:`${document.getElementById("ten_sp").value.trim()}`,
-			image:`${document.getElementById("link_anh").value.trim()}`,
-			description:`${document.getElementById("so_luong").value.trim()}`,
-		})
+	if(document.getElementById("ten_sp").value === '' || document.getElementById("link_anh").value === '' || document.getElementById("so_luong").value === '') {
+		confirm("Điền số liệu!!!")
 	}
+	else{
+		them1()
+	}
+	document.getElementById("ten_sp").value = ""
+	document.getElementById("link_anh").value = ""
+	document.getElementById("so_luong").value = ""
+}
+
+function them1(){
 	return document.getElementById("san_pham").innerHTML += `<li align="center" id="sanPham">
 				 <h3>${document.getElementById("ten_sp").value}</h3>
 				 <img src="${document.getElementById("link_anh").value}" alt="${document.getElementById("ten_sp").value}" width=150px>
