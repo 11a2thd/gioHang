@@ -4,7 +4,7 @@
 
 
 function Mua(){
-	confirm('Có cái con cặcd!!!')
+	confirm('Có cái con cặc!!!')
 }
 
 function login1(){
@@ -29,6 +29,7 @@ function insert(){
 }
 
 function them(){
+	var arrs = []
 	if(document.getElementById("ten_sp").value !== '' && document.getElementById("link_anh").value !== '' && document.getElementById("so_luong").value !== '') {
 		arrs.push({
 			ten:`${document.getElementById("ten_sp").value.trim()}`,
@@ -41,37 +42,35 @@ function them(){
 	document.getElementById("ten_sp").value = ``
 	document.getElementById("so_luong").value = ``
 	document.getElementById("link_anh").value = ``
-	const stringify = JSON.stringify(arrs)
+	var stringify = JSON.stringify(arrs)
 	localStorage.setItem('name', stringify)
 }
 
 function render() {
 	const html = arrs.map(function(arr,index) {
-		return `<div class='wrap'>
-					<img class='img'  src=${arr.image}>
-					<h1>${arr.name}</h1>
-					<h2>Số lượng : ${arr.description}</h2>
-					<button onclick="remove(${index})">Delete</button>
-					<button onclick="updates(${index}) ">Edit</button>
-
-				 </div>`
+		return `<li align="center" id="sanPham">
+				 <h3>${arr.name}</h3>
+				 <img src="${arr.image}" alt="${arr.name}" width=150px>
+				 <p>Giá: ${arr.description} đ</p>
+				 <button onclick="Mua()">Mua hàng</button>
+			 	</li>`
 
 		})
 	document.querySelector('.san_pham').innerHTML = html.join('\n')	
 }
 
-document.querySelector('.form').addEventListener('submit', function(event) {
-	event.preventDefault()
-}	)
-const parses = localStorage.getItem('name')
-var arrs ;
-if(localStorage.getItem('name')) {
+// document.querySelector('.form').addEventListener('submit', function(event) {
+// 	event.preventDefault()
+// }	)
+// const parses = localStorage.getItem('name')
+// var arrs ;
+// if(localStorage.getItem('name')) {
 
-	arrs = JSON.parse(parses)
-}
-else {
-	arrs = []
-}
+// 	arrs = JSON.parse(parses)
+// }
+// else {
+// 	arrs = []
+// }
 
 function logOut(){
 	document.querySelector('.logOut').style.display = 'none';
@@ -80,5 +79,19 @@ function logOut(){
 }
 
 function test(){
-	
+	var arrs = []
+	if(document.getElementById("ten_sp").value !== '' && document.getElementById("link_anh").value !== '' && document.getElementById("so_luong").value !== '') {
+		arrs.push({
+			name:`${document.getElementById("ten_sp").value.trim()}`,
+			image:`${document.getElementById("link_anh").value.trim()}`,
+			description:`${document.getElementById("so_luong").value.trim()}`,
+		})
+	}
+	return document.getElementById("san_pham").innerHTML += `<li align="center" id="sanPham">
+				 <h3>${document.getElementById("ten_sp").value}</h3>
+				 <img src="${document.getElementById("link_anh").value}" alt="${document.getElementById("ten_sp").value}" width=150px>
+				 <p>Giá: ${document.getElementById("so_luong").value} đ</p>
+				 <button onclick="Mua()">Mua hàng</button>
+			 	</li>
+				`
 }

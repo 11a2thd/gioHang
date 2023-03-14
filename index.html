@@ -7,11 +7,11 @@
 	<link rel="stylesheet" href="main.css">
 </head>
 <body class="body">
-    <script src="test.js"></script>
+    <script src="main.js"></script>
     <header>
         <h1>Shop máy ảnh</h1>
-        <button onclick="login1()" id="btn_si">Đăng nhập</button>
-        <button id="btn_si">Đăng ký</button>
+        <!-- <button onclick="login1()" id="btn_si">Đăng nhập</button>
+        <button id="btn_si">Đăng ký</button> -->
     </header>
     <!-- <div class="sign" align="right">
         <table>
@@ -57,17 +57,17 @@
             <h2>Sản phẩm</h2>
             <button class="buttom_insert" onclick="insert()">Thêm sản phẩm</button>
             <div class="insert" style="display: none;">
-            <form class="form" action=" ">
+            <div class="form">
                 <label for="ten_sp">Tên sản phẩm: </label>
                 <input class="ten_sp" id="ten_sp" type="text" >
                 <label for="ten_sp">Link ảnh: </label>
                 <input class="link_anh" id="link_anh" type="text" >
                 <label for="ten_sp">Số lượng: </label>
                 <input class="so_luong" id="so_luong" type="text" >
-                <button onclick="them()">Thêm</button>
-            </form>
+                <button onclick="test()">Thêm</button>
             </div>
-            <ul class="san_pham" style="display: flex;">
+            </div>
+            <ul id="san_pham" style="display: flex;">
                 <li align="center" id="sanPham">
                     <h3>Máy ảnh Canon EOS 80D</h3>
                     <img src="https://hotlive18.me/wp-content/uploads/2022/07/anh-idol-nene-tanaka-23.jpeg" alt="Máy ảnh Canon EOS 80D" width=150px>
