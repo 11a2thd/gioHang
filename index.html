@@ -1,33 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 <head>
-	<title>Bán máy ảnh</title>
+	<title>Shop máy ảnh</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="main.css">
 </head>
 <body class="body">
-    <script src="main.js"></script>
-    <div class="sign" align="right">
+    <script src="test.js"></script>
+    <header>
+        <h1>Shop máy ảnh</h1>
+        <button onclick="login1()" id="btn_si">Đăng nhập</button>
+        <button id="btn_si">Đăng ký</button>
+    </header>
+    <!-- <div class="sign" align="right">
         <table>
             <td><button onclick="login1()">Đăng nhập</button></td>
             <td><button>Đăng ký</button></td>
         </table>
-    </div>
+    </div> -->
     <div class="logOut" align="right" style="display: none;">
         <table>
             <td><button onclick="logOut()">Đăng xuất</button></td>
         </table>
     </div>
     <div class="Login" style="display: none;">
-        <table>
+        <table class="Login">
             <tbody><tr>
               <th width="15%"><label class="block" for="user_name">Tài khoản</label></th>
-              <td width="85%"><input tabindex="1" type="text" name="" id="user_name"></td>
+              <td width="85%"><input tabindex="1" type="text" name="" id="user_name" required></td>
             </tr>
             <tr>
               <th><label class="block" for="user_password">Mật khấu</label></th>
-              <td><input tabindex="1" type="password" name="" id="user_password"></td>
+              <td><input tabindex="1" type="password" name="" id="user_password" required></td>
             </tr>
             <tr>
               <td><button class="button_login" onclick="login()">Đăng nhập</button></td>
@@ -35,59 +40,66 @@
           </tbody>
         </table>
     </div>
-    <div href="/home"  class="home" style="display: block;">
-        <header>
-            <h1>Bán máy ảnh</h1>
-            <nav>
-                <ul>
-                    <li><a href="#about">Giới thiệu</a></li>
-                    <li><a href="#products">Sản phẩm</a></li>
-                    <li><a href="#contact">Liên hệ</a></li>
-                </ul>
-            </nav>
-        </header>
+    <div class="home" style="display: block;">
+        <nav>
+            <ul>
+                <li><a href="#about">Giới thiệu</a></li>
+                <li><a href="#products">Sản phẩm</a></li>
+                <li><a href="#contact">Liên hệ</a></li>
+            </ul>
+        </nav>
         <main>
-            <section id="about">
-                <h2>Giới thiệu</h2>
-                <p>Chào mừng đến với trang web bán máy ảnh của chúng tôi. Chúng tôi cung cấp các loại máy ảnh chất lượng cao với giá cả phải chăng. Chúng tôi cam kết cung cấp sản phẩm chính hãng và đảm bảo chất lượng sản phẩm.</p>
-            </section>
-            <section id="products">
-                <h2>Sản phẩm</h2>
-                <ul>
-                    <table id="sanPham">
-                        <td align="center" id="sanPham">
-                            <h3>Máy ảnh Canon EOS 80D</h3>
-                            <img src="https://hotlive18.me/wp-content/uploads/2022/07/anh-idol-nene-tanaka-23.jpeg" alt="Máy ảnh Canon EOS 80D" width=150px>
-                            <p>Giá: 20.000.000 đ</p>
-                            <button onclick="Mua()">Mua hàng</button>
-                        </td>
-                        <td align="center" id="sanPham">
-                            <h3>Máy ảnh Nikon D750</h3>
-                            <img src="https://javpornpics.com/dmm/kanako-ioka/mevr00002/kanako-ioka-2.jpg" alt="Máy ảnh Nikon D750" width=150px>
-                            <p>Giá: 18.000.000 đ</p>
-                            <button onclick="Mua()">Mua hàng</button>
-                        </td >
-                        <td align="center" id="sanPham">
-                            <h3>Máy ảnh Sony Alpha a7 III</h3>
-                            <img src="https://mruffalo.com/wp-content/uploads/2021/04/Ai-Sayama-Nguoi-dep-JAV-khoe-duong-cong-body-day-kich-thich-18.jpg" alt="Máy ảnh Sony Alpha a7 III" width=150px>
-                            <p>Giá: 25.000.000 đ</p>
-                            <button onclick="Mua()">Mua hàng</button>
-                        </td>
-                    </table>
-                </ul>
-            </section>
-            <section id="contact">
-                <h2>Liên hệ</h2>
-                <form>
-                    <label for="name">Họ tên:</label>
-                    <input type="text" id="name" name="name" required>
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
-                    <label for="phone">Số điện thoại:</label>
-                    <input type="tel" id="phone" name="phone" required>
-                    <label for="message">Nội dung:</label>
-                    <textarea id="message" name="message" required></textarea>
-                    <button>Gửi</button>
+        <section id="about">
+            <h2>Giới thiệu</h2>
+            <p>Chào mừng đến với trang web bán máy ảnh của chúng tôi. Chúng tôi cung cấp các loại máy ảnh chất lượng cao với giá cả phải chăng. Chúng tôi cam kết cung cấp sản phẩm chính hãng và đảm bảo chất lượng sản phẩm.</p>
+        </section>
+        <section id="products">
+            <h2>Sản phẩm</h2>
+            <button class="buttom_insert" onclick="insert()">Thêm sản phẩm</button>
+            <div class="insert" style="display: none;">
+            <form class="form" action=" ">
+                <label for="ten_sp">Tên sản phẩm: </label>
+                <input class="ten_sp" id="ten_sp" type="text" >
+                <label for="ten_sp">Link ảnh: </label>
+                <input class="link_anh" id="link_anh" type="text" >
+                <label for="ten_sp">Số lượng: </label>
+                <input class="so_luong" id="so_luong" type="text" >
+                <button onclick="them()">Thêm</button>
+            </form>
+            </div>
+            <ul class="san_pham" style="display: flex;">
+                <li align="center" id="sanPham">
+                    <h3>Máy ảnh Canon EOS 80D</h3>
+                    <img src="https://hotlive18.me/wp-content/uploads/2022/07/anh-idol-nene-tanaka-23.jpeg" alt="Máy ảnh Canon EOS 80D" width=150px>
+                    <p>Giá: 20.000.000 đ</p>
+                    <button onclick="Mua()">Mua hàng</button>
+                </li>
+                <li align="center" id="sanPham">
+                    <h3>Máy ảnh Nikon D750</h3>
+                    <img src="https://javpornpics.com/dmm/kanako-ioka/mevr00002/kanako-ioka-2.jpg" alt="Máy ảnh Nikon D750" width=150px>
+                    <p>Giá: 18.000.000 đ</p>
+                    <button onclick="Mua()">Mua hàng</button>
+                </li>
+                <li align="center" id="sanPham">
+                    <h3>Máy ảnh Sony Alpha a7 III</h3>
+                    <img src="https://mruffalo.com/wp-content/uploads/2021/04/Ai-Sayama-Nguoi-dep-JAV-khoe-duong-cong-body-day-kich-thich-18.jpg" alt="Máy ảnh Sony Alpha a7 III" width=150px>
+                    <p>Giá: 25.000.000 đ</p>
+                    <button onclick="Mua()">Mua hàng</button>
+                </li>
+            </ul>
+        </section>
+        <section id="contact">
+            <h2>Liên hệ</h2>
+            <form>
+                <label for="name">Họ tên:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="phone">Số điện thoại:</label>
+                <input type="tel" id="phone" name="phone" required>
+                <label for="message">Nội dung:</label>
+                <textarea id="message" name="message" required></textarea>
+                <button>Gửi</button>
             </form>
         </section>
         </main>

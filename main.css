@@ -1,11 +1,25 @@
-* {
-    margin: 2px; /* Loại bỏ margin mặc định */
-    padding: 2px; /* Loại bỏ padding mặc định */
-    background-color: rgb(77, 76, 76);
+body {
+    background-color: rgb(99, 99, 99);
+}
+
+header{
+    margin-left: -10px;
+    background-color: brown;
+    width: 100%;
+    height: 50px;
+    position: fixed;
+    top: 0px;
+    line-height: 10px;
+    flex-direction: row-reverse;    
 }
 
 h1 {
+    text-align: center;
     color: aqua;
+}
+
+#btn_si{
+    align-items: right;
 }
 
 h2 {
@@ -51,3 +65,17 @@ button {
     color: black;
     background-color: azure;
 }
+
+.insert{
+    margin: 5px;
+    color: azure;
+}
+
+.home, .logout{
+    margin-top: 60px;
+}
+
+.Login{
+    margin-top: 100px;
+}
+
