@@ -79,7 +79,7 @@ function logOut(){
 }
 
 function test(){
-	if(document.getElementById("ten_sp").value === '' || document.getElementById("link_anh").value === '' || document.getElementById("so_luong").value === '') {
+	if(document.getElementById("ten_sp").value === '' || document.getElementById("link_anh").value === '' || document.getElementById("so_luong").value === '' || document.getElementById("gia").value === '') {
 		confirm("Điền số liệu!!!")
 	}
 	else{
@@ -88,14 +88,16 @@ function test(){
 	document.getElementById("ten_sp").value = ""
 	document.getElementById("link_anh").value = ""
 	document.getElementById("so_luong").value = ""
+	document.getElementById("gia").value = ""
 }
 
 function them1(){
 	return document.getElementById("san_pham").innerHTML += `<li align="center" id="sanPham">
 				 <h3>${document.getElementById("ten_sp").value}</h3>
-				 <img src="${document.getElementById("link_anh").value}" alt="${document.getElementById("ten_sp").value}" width=150px>
-				 <p>Giá: ${document.getElementById("so_luong").value} đ</p>
-				 <button onclick="Mua()">Mua hàng</button>
+				 <img src="${document.getElementById("link_anh").value}" alt="${document.getElementById("ten_sp").value}" width=150px height=200px>
+				 <p>Số lượng: ${document.getElementById("so_luong").value}</p>
+				 <p>Giá: ${document.getElementById("gia").value} đ</p>
+				 <button class="mua" onclick="Mua()">Mua hàng</button>
 			 	</li>
 				`
 }
