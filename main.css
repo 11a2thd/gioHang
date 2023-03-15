@@ -52,10 +52,6 @@ button {
     color: white;
 }
 
-#sanPham {
-    border: 30px solid rgba(0, 0, 0, 0);
-}
-
 .block{
     color: azure;
 }
@@ -84,4 +80,29 @@ button {
     display: inline-block;
 }
 
+button{
+    font-size: 18px;
+    border-radius: 10px;
+    font-weight: 500;
+    width: 100%px;
+    margin-top: 5px;
+}
 
+.img {
+    border-radius: 20px;
+    width: 275px;
+    height: 350px;
+}
+
+#san_pham{
+    align-items: center;
+}
+
+.sanPham{
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid whitesmoke;
+    margin: 10px;
+    display: block;
+    
+}
