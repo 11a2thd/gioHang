@@ -59,59 +59,73 @@
                 <button class="user_btn">User</button>
             </div>
             <div class="ad" style="display: none;">
-                <button class="button_insert" onclick="insert()">Thêm sản phẩm</button>
-                <button class="button_erase" onclick="erase()">Xóa sản phẩm</button>
+                <button class="button_insert">Thêm sản phẩm</button>
+                <button class="button_erase">Xóa sản phẩm</button>
                 <button class="button_edit" onclick="edit()">Chỉnh sửa sản phẩm</button>
             </div>
             <div class="insert" style="display: none;">
             <!-- <form class="form" action=" "> -->
                 <label for="ten_sp">Tên sản phẩm: </label>
-                <input class="ten_sp" id="ten_sp" type="text" >
+                <input id="ten_sp" type="text" >
                 <label for="link_anh">Link ảnh: </label>
-                <input class="link_anh" id="link_anh" type="text" >
+                <input id="link_anh" type="text" >
                 <label for="so_luong">Số lượng: </label>
-                <input class="so_luong" id="so_luong" type="text" >
+                <input id="so_luong" type="text" >
                 <label for="gia">Giá: </label>
-                <input class="gia" id="gia" type="text" >
+                <input id="gia" type="text" >
                 <button type="submit" onclick="them()">Thêm</button>
             <!-- </form> -->
             </div>
             <!-- Sản Phẩm -->
-            <div id="san_pham" style="display: flex;">
-                <div align="center" class="sanPham">
-                    <img src="/image/Ai Sayama.jpg" alt="Máy ảnh Canon EOS 80D" class="img_sp">
+            <div id="san_pham">
+                <div class="sanPham" align="center">
+                    <img src="/image/Ai Sayama.jpg" alt="Máy ảnh Canon EOS 80D" class="img_sp link_anh">
                     <div class="thong_tin">
-                        <h3>Máy ảnh Canon EOS 80D</h3>
-                        <p>Số lượng: 1</p>
-                        <p>Giá: 20.000.000 đ</p>
+                        <h3 class="ten_sp">Máy ảnh Canon EOS 80D</h3>
+                        <p class="so_luong">Số lượng: 1</p>
+                        <p class="gia">Giá: 20.000.000 đ</p>
                         <button class="mua_btn" style="display: none;">Mua hàng</button>
+                        <button class="xoa_btn"  style="display: none;">Xóa hàng</button>
                     </div>
                 </div>
-                <div align="center" class="sanPham">
-                    <img src="/image/Kanako Ioka.jpg" alt="Máy ảnh Nikon D750" class="img_sp">
+                <div class="sanPham" align="center">
+                    <img src="/image/Kanako Ioka.jpg" alt="Máy ảnh Nikon D750" class="img_sp link_anh">
                     <div class="thong_tin">
-                        <h3>Máy ảnh Nikon D750</h3>
-                        <p>Số lượng: 1</p>
-                        <p>Giá: 18.000.000 đ</p>
+                        <h3 class="ten_sp">Máy ảnh Nikon D750</h3>
+                        <p class="so_luong">Số lượng: 1</p>
+                        <p class="gia">Giá: 18.000.000 đ</p>
                         <button class="mua_btn" style="display: none;">Mua hàng</button>
+                        <button class="xoa_btn"  style="display: none;">Xóa hàng</button>
                     </div>
                 </div>
-                <div align="center" class="sanPham">
-                    <img src="/image/Nene Tanaka.jpg" alt="Máy ảnh Sony Alpha a7 III" class="img_sp">
+                <div class="sanPham" align="center">
+                    <img src="/image/Nene Tanaka.jpg" alt="Máy ảnh Sony Alpha a7 III" class="img_sp link_anh">
                     <div class="thong_tin">
-                        <h3>Máy ảnh Sony Alpha a7 III</h3>
-                        <p>Số lượng: 1</p>
-                        <p>Giá: 25.000.000 đ</p>
+                        <h3 class="ten_sp">Máy ảnh Sony Alpha a7 III</h3>
+                        <p class="so_luong">Số lượng: 1</p>
+                        <p class="gia">Giá: 20.000.000 đ</p>
                         <button class="mua_btn" style="display: none;">Mua hàng</button>
+                        <button class="xoa_btn"  style="display: none;">Xóa hàng</button>
                     </div>
                 </div>
-                <div align="center" class="sanPham">
-                    <img src="/image/Shion Utsunomiya.jpeg" alt="Máy ảnh Sony Alpha a7 III" class="img_sp">
+                <div class="sanPham" align="center">
+                    <img src="/image/Shion Utsunomiya.jpg" alt="Máy ảnh Sony Omega a1 III" class="img_sp link_anh">
                     <div class="thong_tin">
-                        <h3>Máy ảnh Sony Omega a100 III</h3>
-                        <p>Số lượng: 1</p>
-                        <p>Giá: 25.000.000 đ</p>
+                        <h3 class="ten_sp">Máy ảnh Sony Omega a1 III</h3>
+                        <p class="so_luong">Số lượng: 1</p>
+                        <p class="gia">Giá: 22.000.000 đ</p>
                         <button class="mua_btn" style="display: none;">Mua hàng</button>
+                        <button class="xoa_btn"  style="display: none;">Xóa hàng</button>
+                    </div>
+                </div>
+                <div class="sanPham" align="center">
+                    <img src="/image/Megu Fujiura.jpg" alt="Máy ảnh Sony Alpha a50 I" class="img_sp link_anh">
+                    <div class="thong_tin">
+                        <h3 class="ten_sp">Máy ảnh Sony Alpha a50 I</h3>
+                        <p class="so_luong">Số lượng: 1</p>
+                        <p class="gia">Giá: 25.000.000 đ</p>
+                        <button class="mua_btn" style="display: none;">Mua hàng</button>
+                        <button class="xoa_btn"  style="display: none;">Xóa hàng</button>
                     </div>
                 </div>
             </div>

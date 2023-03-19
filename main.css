@@ -1,5 +1,7 @@
 *{
-    margin: auto
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 div{
@@ -11,7 +13,6 @@ body {
 }
 
 header{
-    margin-left: -10px;
     background-color: brown;
     width: 100%;
     height: 40px;
@@ -24,10 +25,6 @@ header{
 h1 {
     text-align: center;
     color: aqua;
-}
-
-#btn_si{
-    align-items: right;
 }
 
 h2, #contact, footer {
@@ -87,24 +84,39 @@ button{
 button:hover{ opacity: 0.5; }
 
 #san_pham{
-    margin-top: 10px;
-    margin-bottom: 10px;
-    width: 85%;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
 }
+
 
 .sanPham{
     float: left;
-    width: 25%;
-    padding: 0 15px;
+    padding: 10px;
+    flex-basis: 20%;
 }
 
 .img_sp{
-    width: 100%;
+    max-width: 100%;
+    height: auto;
     display: block;
+    border: 0;
+    
 }
 
 .thong_tin{
     background-color: aliceblue;
     color: black;
-    padding: 10px;
+    padding: 5px;
+}
+
+h3{
+    display: inline-block;
+    word-wrap: break-word;
+    white-space: normal;
+    overflow: hidden;
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
 }
