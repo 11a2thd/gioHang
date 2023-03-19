@@ -1,10 +1,15 @@
 // const Login = document.querySelector('.Login');
 // const home = document.querySelector('.home');
 // const button_login = document.querySelector('.button_login');
+const admin_btn = document.querySelector('.admin_btn');
+const user_btn = document.querySelector('.user_btn');
+const mua_btn = Object.values(document.querySelectorAll('.mua_btn'))
 
-function Mua(){
-	confirm('Có cái con cặc!!!')
-}
+var mua = mua_btn.map(function(mua){
+	mua.onclick = function (){
+		confirm('Có cái con cặc!!!')
+	}
+})
 
 function login1(){
 	document.querySelector('.home').style.display = 'none';
@@ -23,24 +28,22 @@ function login(){
 	else confirm('Có cái tài khoản/mật khẩu cũng đéo nhớ được.')
 }
 
-function admin(){
-	var mua = Object.values(document.querySelectorAll('.mua'))
-	var mua1 = mua.map(function(mua){
+admin_btn.onclick = function (){
+	var mua1 = mua_btn.map(function(mua){
 		return mua.style.display = 'none'
 	})
-	document.querySelector('.button_ad').style.display = 'none';
+	document.querySelector('.admin_btn').style.display = 'none';
 	document.querySelector('.ad').style.display = 'block';
-	document.querySelector('.button_us').style.display = 'block';
+	document.querySelector('.user_btn').style.display = 'block';
 }
 
-function user(){
-	var mua = Object.values(document.querySelectorAll('.mua'))
-	var mua1 = mua.map(function(mua){
+user_btn.onclick = function (){
+	var mua1 = mua_btn.map(function(mua){
 		return mua.style.display = 'block'
 	})
-	document.querySelector('.button_ad').style.display = 'block';
+	document.querySelector('.admin_btn').style.display = 'block';
 	document.querySelector('.ad').style.display = 'none';
-	document.querySelector('.button_us').style.display = 'none';
+	document.querySelector('.user_btn').style.display = 'none';
 	document.querySelector('.insert').style.display = 'none';
 }
 
@@ -81,17 +84,17 @@ function them(){
 
 function them1(arrs){
 	const html = arrs.map(function(arrs, index){
-		return document.getElementById("san_pham").innerHTML += `<div align="center" class="sanPham">
-																	<h3>${arrs.ten}</h3>
-																	<img src="${arrs.link}" alt="${arrs.ten}" class="img">
-																	<p>Số lượng: ${arrs.so_luong}</p>
-																	<p>Giá: ${arrs.gia} đ</p>
-																	<button class="mua" onclick="Mua()" style="display: none;">Mua hàng</button>
-																</div>
-																`
+		return document.getElementById("san_pham").innerHTML += `
+																<div align="center" class="sanPham">
+                    <img src="${arrs.link}" alt="${arrs.ten}" class="img_sp">
+                    <div class="thong_tin">
+                        <h3>${arrs.ten}</h3>
+                        <p>Số lượng: ${arrs.so_luong}</p>
+                        <p>Giá: ${arrs.gia} đ</p>
+                        <button class="mua_btn" style="display: none;">Mua hàng</button>
+                    </div>
+                </div>`
 	})
-	// document.getElementById("san_pham").innerHTML = html.join('\n')
-	document.getElementById("san_pham").innerHTML = html.join('\n');
 }
 
 function logOut(){

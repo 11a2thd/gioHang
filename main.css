@@ -1,3 +1,11 @@
+*{
+    margin: auto
+}
+
+div{
+    display: block
+}
+
 body {
     background-color: rgb(99, 99, 99);
 }
@@ -6,10 +14,10 @@ header{
     margin-left: -10px;
     background-color: brown;
     width: 100%;
-    height: 50px;
+    height: 40px;
     position: fixed;
     top: 0px;
-    line-height: 10px;
+    line-height: 40px;
     flex-direction: row-reverse;    
 }
 
@@ -22,12 +30,8 @@ h1 {
     align-items: right;
 }
 
-h2 {
+h2, #contact, footer {
     color: aqua;
-}
-
-h3 {
-    color: greenyellow;
 }
 
 a {
@@ -36,16 +40,6 @@ a {
 
 p {
     margin-top: 2px;
-    color: greenyellow;
-}
-
-li {
-    color: greenyellow;
-}
-
-button {
-    background-color: aliceblue;
-    color: purple;
 }
 
 .form {
@@ -81,28 +75,36 @@ button {
 }
 
 button{
+    background-color: aliceblue;
+    color: black;
     font-size: 18px;
     border-radius: 10px;
     font-weight: 500;
-    width: 100%px;
     margin-top: 5px;
+    padding: 3px 3px;
 }
 
-.img {
-    border-radius: 20px;
-    width: 275px;
-    height: 350px;
-}
+button:hover{ opacity: 0.5; }
 
 #san_pham{
-    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 85%;
 }
 
 .sanPham{
-    padding: 10px;
-    border-radius: 10px;
-    border: 1px solid whitesmoke;
-    margin: 10px;
+    float: left;
+    width: 25%;
+    padding: 0 15px;
+}
+
+.img_sp{
+    width: 100%;
     display: block;
-    
+}
+
+.thong_tin{
+    background-color: aliceblue;
+    color: black;
+    padding: 10px;
 }

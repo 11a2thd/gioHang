@@ -55,8 +55,8 @@
         </section id="products">
             <h2>Sản phẩm</h2> -->
             <div align="center">
-                <button class="button_ad" onclick="admin()">Admin</button>
-                <button class="button_us" onclick="user()">User</button>
+                <button class="admin_btn">Admin</button>
+                <button class="user_btn">User</button>
             </div>
             <div class="ad" style="display: none;">
                 <button class="button_insert" onclick="insert()">Thêm sản phẩm</button>
@@ -73,33 +73,48 @@
                 <input class="so_luong" id="so_luong" type="text" >
                 <label for="gia">Giá: </label>
                 <input class="gia" id="gia" type="text" >
-                <button onclick="them()">Thêm</button>
+                <button type="submit" onclick="them()">Thêm</button>
             <!-- </form> -->
             </div>
-
-            <ul id="san_pham" style="display: flex;">
+            <!-- Sản Phẩm -->
+            <div id="san_pham" style="display: flex;">
                 <div align="center" class="sanPham">
-                    <h3>Máy ảnh Canon EOS 80D</h3>
-                    <img src="https://hotlive18.me/wp-content/uploads/2022/07/anh-idol-nene-tanaka-23.jpeg" alt="Máy ảnh Canon EOS 80D" class="img">
-                    <p>Số lượng: 1</p>
-                    <p>Giá: 20.000.000 đ</p>
-                    <button class="mua" onclick="Mua()" style="display: none;">Mua hàng</button>
+                    <img src="/image/Ai Sayama.jpg" alt="Máy ảnh Canon EOS 80D" class="img_sp">
+                    <div class="thong_tin">
+                        <h3>Máy ảnh Canon EOS 80D</h3>
+                        <p>Số lượng: 1</p>
+                        <p>Giá: 20.000.000 đ</p>
+                        <button class="mua_btn" style="display: none;">Mua hàng</button>
+                    </div>
                 </div>
                 <div align="center" class="sanPham">
-                    <h3>Máy ảnh Nikon D750</h3>
-                    <img src="https://javpornpics.com/dmm/kanako-ioka/mevr00002/kanako-ioka-2.jpg" alt="Máy ảnh Nikon D750" class="img">
-                    <p>Số lượng: 1</p>
-                    <p>Giá: 18.000.000 đ</p>
-                    <button class="mua" onclick="Mua()" style="display: none;">Mua hàng</button>
+                    <img src="/image/Kanako Ioka.jpg" alt="Máy ảnh Nikon D750" class="img_sp">
+                    <div class="thong_tin">
+                        <h3>Máy ảnh Nikon D750</h3>
+                        <p>Số lượng: 1</p>
+                        <p>Giá: 18.000.000 đ</p>
+                        <button class="mua_btn" style="display: none;">Mua hàng</button>
+                    </div>
                 </div>
                 <div align="center" class="sanPham">
-                    <h3>Máy ảnh Sony Alpha a7 III</h3>
-                    <img src="https://mruffalo.com/wp-content/uploads/2021/04/Ai-Sayama-Nguoi-dep-JAV-khoe-duong-cong-body-day-kich-thich-18.jpg" alt="Máy ảnh Sony Alpha a7 III" class="img">
-                    <p>Số lượng: 1</p>
-                    <p>Giá: 25.000.000 đ</p>
-                    <button class="mua" onclick="Mua()" style="display: none;">Mua hàng</button>
+                    <img src="/image/Nene Tanaka.jpg" alt="Máy ảnh Sony Alpha a7 III" class="img_sp">
+                    <div class="thong_tin">
+                        <h3>Máy ảnh Sony Alpha a7 III</h3>
+                        <p>Số lượng: 1</p>
+                        <p>Giá: 25.000.000 đ</p>
+                        <button class="mua_btn" style="display: none;">Mua hàng</button>
+                    </div>
                 </div>
-            </ul>
+                <div align="center" class="sanPham">
+                    <img src="/image/Shion Utsunomiya.jpeg" alt="Máy ảnh Sony Alpha a7 III" class="img_sp">
+                    <div class="thong_tin">
+                        <h3>Máy ảnh Sony Omega a100 III</h3>
+                        <p>Số lượng: 1</p>
+                        <p>Giá: 25.000.000 đ</p>
+                        <button class="mua_btn" style="display: none;">Mua hàng</button>
+                    </div>
+                </div>
+            </div>
             
         </section>
         <section id="contact">
