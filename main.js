@@ -5,8 +5,12 @@ const admin_btn = document.querySelector('.admin_btn');
 const user_btn = document.querySelector('.user_btn');
 const ad = document.querySelector('.ad');
 const insert = document.querySelector('.insert');
-const button_insert = document.querySelector('.button_insert');
-const button_erase = document.querySelector('.button_erase');
+const insert_btn = document.querySelector('.insert_btn');
+const erase_btn = document.querySelector('.erase_btn');
+const edit_btn = document.querySelector('.edit_btn');
+const Them_btn = document.querySelector('.Them_btn');
+const Sua_btn = document.querySelector('.Sua_btn');
+
 
 function login1(){
 	document.querySelector('.home').style.display = 'none';
@@ -51,28 +55,38 @@ user_btn.onclick = function (){
 	})
 	var xoa_btn = Object.values(document.querySelectorAll('.xoa_btn'))
 	var xoa = xoa_btn.map(function(xoa){
-		return xoa.style.display = 'none'
+		return xoa.style.display = 'none';
+	})
+	var sua_btn = Object.values(document.querySelectorAll('.sua_btn'))
+	var sua = sua_btn.map(function(sua){
+		return sua.style.display = 'none';
 	})
 }
 
-button_insert.onclick = function (){
-	insert.style.display = 'block';
+insert_btn.onclick = function (){
+	document.getElementById("link_anh").value = ""
+	document.getElementById("ten_sp").value = ""
+	document.getElementById("so_luong").value = ""
+	document.getElementById("gia").value = ""
+	insert.style.display = 'flex';
 	var xoa_btn = Object.values(document.querySelectorAll('.xoa_btn'))
 	var xoa = xoa_btn.map(function(xoa){
-		return xoa.style.display = 'none'
+		return xoa.style.display = 'none';
 	})
-}
-
-function edit(){
-	document.querySelector('.insert').style.display = 'block';
+	var sua_btn = Object.values(document.querySelectorAll('.sua_btn'))
+	var sua = sua_btn.map(function(sua){
+		return sua.style.display = 'none';
+	})
+	Them_btn.style.display = 'block';
+	Sua_btn.style.display = 'none'
 }
 
 const arrs = []
 
 var link_anh = document.getElementsByClassName('link_anh')
 var ten_sp = document.getElementsByClassName('ten_sp')
-var so_luong = document.getElementsByClassName('so_luong')
-var gia = document.getElementsByClassName('gia')
+var so_luong = document.getElementsByClassName('sl_value')
+var gia = document.getElementsByClassName('gia_value')
 
 for(var i = 0; i < ten_sp.length; i++){
 	arrs.push({
@@ -88,7 +102,7 @@ function them(){
 	document.getElementById("link_anh").value === '' || 
 	document.getElementById("so_luong").value === '' || 
 	document.getElementById("gia").value === '') {
-		confirm("Điền số liệu!!!")
+		return confirm("Điền số liệu!!!")
 	}
 	else{
 		arrs.push({
@@ -99,7 +113,6 @@ function them(){
 		})
 	}
 	them1(arrs[arrs.length - 1])
-	console.log(arrs)
 	document.getElementById("link_anh").value = ""
 	document.getElementById("ten_sp").value = ""
 	document.getElementById("so_luong").value = ""
@@ -111,15 +124,16 @@ function them1(arrs){
 		<img src="${arrs.link_anh}" alt="${arrs.ten_sp}" class="img_sp link_anh">
 		<div class="thong_tin">
 			<h3 class="ten_sp">${arrs.ten_sp}</h3>
-			<p class="so_luong">Số lượng: ${arrs.so_luong}</p>
-			<p class="gia">Giá: ${arrs.gia} đ</p>
-			<button class="mua_btn" style="display: none;">Mua hàng</button>
-			<button class="xoa_btn" style="display: none;">Xóa hàng</button>
+			<p class="sl">Số lượng: </p><p class="sl sl_value">${arrs.so_luong}</p><br>
+			<p class="gia">Giá: </p><p class="gia gia_value">${arrs.gia}</p><p class="gia"> đ</p>
+			<button class="btn mua_btn" style="display: none;">Mua hàng</button>
+			<button class="btn xoa_btn"  style="display: none;">Xóa hàng</button>
+			<button class="btn sua_btn"  style="display: none;">Sửa hàng</button>
 		</div>
 	</div>`) 
 }
 
-button_erase.onclick = function (){
+erase_btn.onclick = function (){
 	document.querySelector('.insert').style.display = 'none';
 	var mua_btn = Object.values(document.querySelectorAll('.mua_btn'))
 	var mua = mua_btn.map(function(mua){
@@ -129,26 +143,79 @@ button_erase.onclick = function (){
 	var xoa = xoa_btn.map(function(xoa){
 		return xoa.style.display = 'block'
 	})
+	var sua_btn = Object.values(document.querySelectorAll('.sua_btn'))
+	var sua = sua_btn.map(function(sua){
+		return sua.style.display = 'none';
+	})
 	return xoa_hang()
 }
 
 function xoa_hang(){
-	var arr = Object.values(document.querySelectorAll('.xoa_btn'))
-	console.log(arr)
-	var xoa1 = arr.map(function(arr, index){
-		arr.onclick = function (){
+	var xoa_btn = Object.values(document.querySelectorAll('.xoa_btn'))
+	var arr = xoa_btn.map(function(xoa_btn, index){
+		xoa_btn.onclick = function (){
 			document.getElementsByClassName('sanPham')[index].remove()
 			return xoa_hang()
 		}	
 	})
 }
 
-function logOut(){
-	document.querySelector('.logOut').style.display = 'none';
-	document.querySelector('.sign').style.display = 'block';
-	document.querySelector('.home').style.display = 'block';
+edit_btn.onclick = function (){
+	var xoa_btn = Object.values(document.querySelectorAll('.xoa_btn'))
+	var xoa = xoa_btn.map(function(xoa){
+		return xoa.style.display = 'none';
+	})
+	var sua_btn = Object.values(document.querySelectorAll('.sua_btn'))
+	var sua = sua_btn.map(function(sua){
+		return sua.style.display = 'block';
+	})
+	insert.style.display = 'none';
 }
 
-function test(){
-	
+function sua(){
+	var sua_btn = Object.values(document.querySelectorAll('.sua_btn'))
+	var arr = sua_btn.map(function(sua_btn, index){
+		sua_btn.onclick = function (){
+			document.getElementById("link_anh").value = `${arrs[index].link_anh}`
+			document.getElementById("ten_sp").value = `${arrs[index].ten_sp}`
+			document.getElementById("so_luong").value = `${arrs[index].so_luong}`
+			document.getElementById("gia").value = `${arrs[index].gia}`
+			insert.style.display = 'flex';
+			Them_btn.style.display = 'none';
+			Sua_btn.style.display = 'block';
+			Sua_btn.onclick = function (){
+				if(document.getElementById("ten_sp").value === '' || 
+				document.getElementById("link_anh").value === '' || 
+				document.getElementById("so_luong").value === '' || 
+				document.getElementById("gia").value === '') {
+					return confirm("Điền số liệu!!!")
+				}
+				else{
+					arrs[index].link_anh = document.getElementById("link_anh").value 
+					arrs[index].ten_sp = document.getElementById("ten_sp").value
+					arrs[index].so_luong = document.getElementById("so_luong").value 
+					arrs[index].gia = document.getElementById("gia").value
+					document.getElementsByClassName('sanPham')[index].innerHTML = `<div class="sanPham" align="center">
+					<img src="${arrs[index].link_anh}" alt="${arrs[index].ten_sp}" class="img_sp link_anh">
+					<div class="thong_tin">
+						<h3 class="ten_sp">${arrs[index].ten_sp}</h3>
+						<p class="sl">Số lượng: </p><p class="sl sl_value">${arrs[index].so_luong}</p><br>
+						<p class="gia">Giá: </p><p class="gia gia_value">${arrs[index].gia}</p><p class="gia"> đ</p>
+						<button class="btn mua_btn" style="display: none;">Mua hàng</button>
+						<button class="btn xoa_btn"  style="display: none;">Xóa hàng</button>
+						<button class="btn sua_btn"  style="display: block;">Sửa hàng</button>
+					</div>
+				</div>`
+				}
+				document.getElementById("link_anh").value = ""
+				document.getElementById("ten_sp").value = ""
+				document.getElementById("so_luong").value = ""
+				document.getElementById("gia").value = ""
+				insert.style.display = 'none';
+				sua()
+			}
+			
+		}
+	})
 }
+sua()

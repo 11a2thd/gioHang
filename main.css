@@ -39,23 +39,57 @@ p {
     margin-top: 2px;
 }
 
-.form {
-    color: white;
+.sl{
+    display: inline;
 }
-
-.block{
-    color: azure;
-}
-
-.button{
-    width: 50px;
-    height: 25px;
-    color: black;
-    background-color: azure;
+.gia{
+    display: inline;
 }
 
 .insert{
-    margin: 5px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.ipt{
+    display: inline-grid;
+    align-items: center;
+    margin: 5px 0;
+}
+
+.input {
+    padding: 5px;
+    margin: 0 10px;
+}
+
+.input_ten{
+    width: 350px;
+}
+.input_link{
+    width: 350px;
+}
+.input_sl{
+    width: 100px;
+}
+.input_gia{
+    width: 150px;
+}
+
+label{
+    font-size: 20px;
+    color: aliceblue;
+    margin-bottom: 3px;
+}
+
+.them_btn{
+    margin-top: 18px;
+}
+
+.sua_btn{
+    margin-top: 18px;
+}
+
+.block{
     color: azure;
 }
 
@@ -67,21 +101,32 @@ p {
     margin-top: 100px;
 }
 
-.mua{
-    display: inline-block;
-}
-
 button{
-    background-color: aliceblue;
-    color: black;
-    font-size: 18px;
-    border-radius: 10px;
-    font-weight: 500;
-    margin-top: 5px;
-    padding: 3px 3px;
+    display: inline-block;
+    text-decoration: none;
+    background-color: darkblue;
+    border: none;
+    outline: none;
+    color: #fff;
+    padding: 12px 48px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: opacity .2s linear;
+    min-width: 50px;
+    font-size: 15px;
+    margin: 5px 5px;
 }
 
-button:hover{ opacity: 0.5; }
+.btn + .btn{
+    margin-left: 10px;
+}
+
+.btn_disabled{
+    opacity: 0.45 !important;
+    cursor: default;
+}
+
+button:hover{ opacity: 0.6; }
 
 #san_pham{
     align-items: center;
