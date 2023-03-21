@@ -156,6 +156,7 @@ function xoa_hang(){
 	var arr = xoa_btn.map(function(xoa_btn, index){
 		xoa_btn.onclick = function (){
 			document.getElementsByClassName('sanPham')[index].remove()
+			arrs.splice(index, 1)
 			return xoa_hang()
 		}	
 	})
