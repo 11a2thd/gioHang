@@ -28,33 +28,65 @@
                 <button class="btn admin_btn">Admin</button>
                 <button class="btn user_btn">User</button>
             </div>
-            <div class="ad" style="display: none;">
-                <button class="btn insert_btn">Thêm sản phẩm</button>
-                <button class="btn erase_btn">Xóa sản phẩm</button>
-                <button class="btn edit_btn">Chỉnh sửa sản phẩm</button>
-            </div>
-            <div class="insert" style="display: none;">
-            <!-- <form class="form" action=" "> -->
-                <div align="center" class="ipt">
-                    <label for="ten_sp">Tên sản phẩm</label>
-                    <input class="input input_ten" id="ten_sp" type="text" placeholder="Tên sản phẩm">
+            <div class="grid chucNang" style="display: none;">
+                <!-- Tab items -->
+                <div class="tabs">
+                  <div class="tab-item active">
+                    <i class="tab-icon fas fa-code"></i>
+                    Thêm sản phẩm
+                  </div>
+                  <div class="erase_btn tab-item" onclick="erase">
+                    <i class="tab-icon fas fa-cog"></i>
+                    Xóa sản phẩm
+                  </div>
+                  <div class="edit_btn tab-item ">
+                    <i class="tab-icon fas fa-plus-circle"></i>
+                    Sửa sản phẩm
+                  </div>
+                  <div class="tab-item">
+                    <i class="tab-icon fas fa-pen-nib"></i>
+                    Vue.JS
+                  </div>
+                  <div class="line"></div>
                 </div>
-                <div align="center" class="ipt">
-                    <label for="link_anh">Link ảnh</label>
-                    <input class="input input_link" id="link_anh" type="text" placeholder="Link ảnh">
+              
+                <!-- Tab content -->
+                <div class="tab-content">
+                  <div id="insert_id" class="tab-pane active">
+                    <div class="insert">
+                        <!-- <form class="form" action=" "> -->
+                            <div align="center" class="ipt">
+                                <label for="ten_sp">Tên sản phẩm</label>
+                                <input class="input input_ten" id="ten_sp" type="text" placeholder="Tên sản phẩm">
+                            </div>
+                            <div align="center" class="ipt">
+                                <label for="link_anh">Link ảnh</label>
+                                <input class="input input_link" id="link_anh" type="text" placeholder="Link ảnh">
+                            </div>
+                            <div align="center" class="ipt">
+                                <label for="so_luong">Số lượng</label>
+                                <input class="input input_sl" id="so_luong" type="text" placeholder="Số lượng">
+                            </div>
+                            <div align="center" class="ipt">
+                                <label for="gia">Giá</label>
+                            <input class="input input_gia" id="gia" type="text" placeholder="Giá">
+                            </div>
+                            <button class="btn Them_btn" type="submit" onclick="them()">Thêm</button>
+                        <!-- </form> -->
+                        </div>
+                  </div>
+                  <div id="erase_id" class="tab-pane">
+                    
+                  </div>
+                  <div id="edit_id" class="tab-pane">
+                    
+                  </div>
+                  <div id="" class="tab-pane">
+                    <h2>Vue.js</h2>
+                    <p>Vue (pronounced /vjuː/, like view) is a progressive framework for building user interfaces. Unlike other monolithic frameworks, Vue is designed from the ground up to be incrementally adoptable. </p>
+                  </div>
                 </div>
-                <div align="center" class="ipt">
-                    <label for="so_luong">Số lượng</label>
-                    <input class="input input_sl" id="so_luong" type="text" placeholder="Số lượng">
-                </div>
-                <div align="center" class="ipt">
-                    <label for="gia">Giá</label>
-                <input class="input input_gia" id="gia" type="text" placeholder="Giá">
-                </div>
-                <button class="btn Them_btn" type="submit" onclick="them()">Thêm</button>
-                <button class="btn Sua_btn" type="submit" onclick="them()">Sửa</button>
-            <!-- </form> -->
-            </div>
+              </div>
             <!-- Sản Phẩm -->
             <div class="grid" id="san_pham">
                 <div class="sanPham" align="center">

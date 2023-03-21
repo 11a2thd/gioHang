@@ -2,15 +2,14 @@
 // const home = document.querySelector('.home');
 // const button_login = document.querySelector('.button_login');
 const arrs = []
-const admin_btn = document.querySelector('.admin_btn');
-const user_btn = document.querySelector('.user_btn');
-const ad = document.querySelector('.ad');
-const insert = document.querySelector('.insert');
-const insert_btn = document.querySelector('.insert_btn');
-const erase_btn = document.querySelector('.erase_btn');
-const edit_btn = document.querySelector('.edit_btn');
-const Them_btn = document.querySelector('.Them_btn');
-const Sua_btn = document.querySelector('.Sua_btn');
+const $ = document.querySelector.bind(document);
+const $$ = document.querySelectorAll.bind(document);
+const admin_btn = $('.admin_btn');
+const user_btn = $('.user_btn');
+const chucNang = $('.chucNang');
+const edit_btn = $('.edit_btn');
+const Them_btn = $('.Them_btn');
+const Sua_btn = $('.Sua_btn');
 
 function login1(){
 	document.querySelector('.home').style.display = 'none';
@@ -30,58 +29,132 @@ function login(){
 }
 
 admin_btn.onclick = function (){
-	var mua_btn = Object.values(document.querySelectorAll('.mua_btn'))
+	var mua_btn = Object.values($$('.mua_btn'))
 	var mua = mua_btn.map(function(mua){
 		return mua.style.display = 'none'
 	})
 	admin_btn.style.display = 'none';
-	ad.style.display = 'block';
+	chucNang.style.display = 'block';
 	user_btn.style.display = 'block';
 }
 
 user_btn.onclick = function (){
-	var mua_btn = Object.values(document.querySelectorAll('.mua_btn'))
+	var mua_btn = Object.values($$('.mua_btn'))
 	var mua = mua_btn.map(function(mua){
 		return mua.style.display = 'block'
 	})
 	admin_btn.style.display = 'block';
-	ad.style.display = 'none';
+	chucNang.style.display = 'none';
 	user_btn.style.display = 'none';
-	insert.style.display = 'none';
+
 	var mua = mua_btn.map(function(mua){
 		mua.onclick = function (){
 			confirm('Có cái con cặc!!!')
 		}
 	})
-	var xoa_btn = Object.values(document.querySelectorAll('.xoa_btn'))
+	var xoa_btn = Object.values($$('.xoa_btn'))
 	var xoa = xoa_btn.map(function(xoa){
 		return xoa.style.display = 'none';
 	})
-	var sua_btn = Object.values(document.querySelectorAll('.sua_btn'))
+	var sua_btn = Object.values($$('.sua_btn'))
 	var sua = sua_btn.map(function(sua){
 		return sua.style.display = 'none';
 	})
 }
 
-insert_btn.onclick = function (){
-	document.getElementById("link_anh").value = ""
-	document.getElementById("ten_sp").value = ""
-	document.getElementById("so_luong").value = ""
-	document.getElementById("gia").value = ""
-	insert.style.display = 'flex';
-	var xoa_btn = Object.values(document.querySelectorAll('.xoa_btn'))
-	var xoa = xoa_btn.map(function(xoa){
-		return xoa.style.display = 'none';
-	})
-	var sua_btn = Object.values(document.querySelectorAll('.sua_btn'))
-	var sua = sua_btn.map(function(sua){
-		return sua.style.display = 'none';
-	})
-	Them_btn.style.display = 'block';
-	Sua_btn.style.display = 'none'
-}
+const tabs = $$(".tab-item");
+const panes = $$(".tab-pane");
 
+const tabActive = $(".tab-item.active");
+const line = $(".tabs .line");
 
+requestIdleCallback(function () {
+  line.style.left = tabActive.offsetLeft + "px";
+  line.style.width = tabActive.offsetWidth + "px";
+});
+
+tabs.forEach((tab, index) => {
+  const pane = panes[index];
+
+  tab.onclick = function () {
+    $(".tab-item.active").classList.remove("active");
+    $(".tab-pane.active").classList.remove("active");
+
+    line.style.left = this.offsetLeft + "px";
+    line.style.width = this.offsetWidth + "px";
+
+    this.classList.add("active");
+    pane.classList.add("active");
+
+	switch(index){
+		case 0:{
+			var xoa_btn = Object.values($$('.xoa_btn'))
+			var xoa = xoa_btn.map(function(xoa){
+				return xoa.style.display = 'none';
+			})
+			var sua_btn = Object.values($$('.sua_btn'))
+			var sua = sua_btn.map(function(sua){
+				return sua.style.display = 'none';
+			})
+			if($('.insert') != null){ $('.insert').remove() }
+			document.getElementById("insert_id").insertAdjacentHTML('beforeend', `<div class="insert">
+			<!-- <form class="form" action=" "> -->
+				<div align="center" class="ipt">
+					<label for="ten_sp">Tên sản phẩm</label>
+					<input class="input input_ten" id="ten_sp" type="text" placeholder="Tên sản phẩm">
+				</div>
+				<div align="center" class="ipt">
+					<label for="link_anh">Link ảnh</label>
+					<input class="input input_link" id="link_anh" type="text" placeholder="Link ảnh">
+				</div>
+				<div align="center" class="ipt">
+					<label for="so_luong">Số lượng</label>
+					<input class="input input_sl" id="so_luong" type="text" placeholder="Số lượng">
+				</div>
+				<div align="center" class="ipt">
+					<label for="gia">Giá</label>
+				<input class="input input_gia" id="gia" type="text" placeholder="Giá">
+				</div>
+				<button class="btn Them_btn" type="submit" onclick="them()">Thêm</button>
+			<!-- </form> -->
+			</div>`)
+			Sua()
+			break;
+		}
+		case 1:{
+			var mua_btn = Object.values($$('.mua_btn'))
+			var mua = mua_btn.map(function(mua){
+				return mua.style.display = 'none'
+			})
+			var xoa_btn = Object.values($$('.xoa_btn'))
+			var xoa = xoa_btn.map(function(xoa){
+				return xoa.style.display = 'block'
+			})
+			var sua_btn = Object.values($$('.sua_btn'))
+			var sua = sua_btn.map(function(sua){
+				return sua.style.display = 'none';
+			})
+			xoa_hang()
+			break;
+		}
+		case 2:{
+			var xoa_btn = Object.values($$('.xoa_btn'))
+			var xoa = xoa_btn.map(function(xoa){
+				return xoa.style.display = 'none';
+			})
+			var sua_btn = Object.values($$('.sua_btn'))
+			var arr = sua_btn.map(function(sua){
+				return sua.style.display = 'block';
+			})
+			Sua()
+			break;
+		}
+		default :{
+
+		}
+	}
+  };
+});
 
 var link_anh = document.getElementsByClassName('link_anh')
 var ten_sp = document.getElementsByClassName('ten_sp')
@@ -133,25 +206,12 @@ function them1(arrs){
 	</div>`) 
 }
 
-erase_btn.onclick = function (){
-	document.querySelector('.insert').style.display = 'none';
-	var mua_btn = Object.values(document.querySelectorAll('.mua_btn'))
-	var mua = mua_btn.map(function(mua){
-		return mua.style.display = 'none'
-	})
-	var xoa_btn = Object.values(document.querySelectorAll('.xoa_btn'))
-	var xoa = xoa_btn.map(function(xoa){
-		return xoa.style.display = 'block'
-	})
-	var sua_btn = Object.values(document.querySelectorAll('.sua_btn'))
-	var sua = sua_btn.map(function(sua){
-		return sua.style.display = 'none';
-	})
-	return xoa_hang()
-}
+// erase_btn.onclick = function (){
+	
+// }
 
 function xoa_hang(){
-	var xoa_btn = Object.values(document.querySelectorAll('.xoa_btn'))
+	var xoa_btn = Object.values($$('.xoa_btn'))
 	var arr = xoa_btn.map(function(xoa_btn, index){
 		xoa_btn.onclick = function (){
 			document.getElementsByClassName('sanPham')[index].remove()
@@ -161,18 +221,37 @@ function xoa_hang(){
 	})
 }
 
-function sua(){
-	var sua_btn = Object.values(document.querySelectorAll('.sua_btn'))
+function Sua(){
+	var sua_btn = Object.values($$('.sua_btn'))
 	var arr = sua_btn.map(function(sua_btn, index){
 		sua_btn.onclick = function (){
+			if($('.insert') != null){ $('.insert').remove() }
+			document.getElementById("edit_id").insertAdjacentHTML('beforeend', `<div class="insert">
+			<!-- <form class="form" action=" "> -->
+				<div align="center" class="ipt">
+					<label for="ten_sp">Tên sản phẩm</label>
+					<input class="input input_ten" id="ten_sp" type="text" placeholder="Tên sản phẩm">
+				</div>
+				<div align="center" class="ipt">
+					<label for="link_anh">Link ảnh</label>
+					<input class="input input_link" id="link_anh" type="text" placeholder="Link ảnh">
+				</div>
+				<div align="center" class="ipt">
+					<label for="so_luong">Số lượng</label>
+					<input class="input input_sl" id="so_luong" type="text" placeholder="Số lượng">
+				</div>
+				<div align="center" class="ipt">
+					<label for="gia">Giá</label>
+				<input class="input input_gia" id="gia" type="text" placeholder="Giá">
+				</div>
+				<button class="btn Sua_btn" type="submit" onclick="Sua()">Sửa</button>
+			<!-- </form> -->
+			</div>`)
 			document.getElementById("link_anh").value = `${arrs[index].link_anh}`
 			document.getElementById("ten_sp").value = `${arrs[index].ten_sp}`
 			document.getElementById("so_luong").value = `${arrs[index].so_luong}`
 			document.getElementById("gia").value = `${arrs[index].gia}`
-			insert.style.display = 'flex';
-			Them_btn.style.display = 'none';
-			Sua_btn.style.display = 'block';
-			Sua_btn.onclick = function (){
+			$('.Sua_btn').onclick = function (){
 				if(document.getElementById("ten_sp").value === '' || 
 				document.getElementById("link_anh").value === '' || 
 				document.getElementById("so_luong").value === '' || 
@@ -200,22 +279,35 @@ function sua(){
 				document.getElementById("ten_sp").value = ""
 				document.getElementById("so_luong").value = ""
 				document.getElementById("gia").value = ""
-				insert.style.display = 'none';
-				sua()
+				if($('.insert') != null){ $('.insert').remove() }
+				document.getElementById("insert_id").insertAdjacentHTML('beforeend', `<div class="insert">
+				<!-- <form class="form" action=" "> -->
+					<div align="center" class="ipt">
+						<label for="ten_sp">Tên sản phẩm</label>
+						<input class="input input_ten" id="ten_sp" type="text" placeholder="Tên sản phẩm">
+					</div>
+					<div align="center" class="ipt">
+						<label for="link_anh">Link ảnh</label>
+						<input class="input input_link" id="link_anh" type="text" placeholder="Link ảnh">
+					</div>
+					<div align="center" class="ipt">
+						<label for="so_luong">Số lượng</label>
+						<input class="input input_sl" id="so_luong" type="text" placeholder="Số lượng">
+					</div>
+					<div align="center" class="ipt">
+						<label for="gia">Giá</label>
+					<input class="input input_gia" id="gia" type="text" placeholder="Giá">
+					</div>
+					<button class="btn Them_btn" type="submit" onclick="them()">Thêm</button>
+				<!-- </form> -->
+				</div>`)
+				Sua()
 			}
 		}
 	})
 }
+//--------------------
 
-edit_btn.onclick = function (){
-	var xoa_btn = Object.values(document.querySelectorAll('.xoa_btn'))
-	var xoa = xoa_btn.map(function(xoa){
-		return xoa.style.display = 'none';
-	})
-	var sua_btn = Object.values(document.querySelectorAll('.sua_btn'))
-	var arr = sua_btn.map(function(sua){
-		return sua.style.display = 'block';
-	})
-	insert.style.display = 'none';
-	sua()
-}
+
+
+
