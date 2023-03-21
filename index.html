@@ -7,53 +7,22 @@
 	<link rel="stylesheet" href="main.css">
 </head>
 <body class="body">
-    
-    <header>
-        <h1>Shop máy ảnh</h1>
-        <!-- <button onclick="login1()" id="btn_si">Đăng nhập</button>
-        <button id="btn_si">Đăng ký</button> -->
+<div>
+    <header class="header">
+        <div class="grid_header">
+            <nav class="nav">
+                <ul class="header_ul">
+                    <li class="header_ul header_ul-li1">Shop máy ảnh</li>
+                </ul>
+                <ul class="header_ul">
+                    <li class="header_ul header_ul-li2">Đăng ký</li>
+                    <li class="header_ul header_ul-li2">Đăng nhập</li>
+                </ul>
+            </nav>
+        </div>
     </header>
-    <!-- <div class="sign" align="right">
-        <table>
-            <td><button onclick="login1()">Đăng nhập</button></td>
-            <td><button>Đăng ký</button></td>
-        </table>
-    </div> -->
-    <!-- <div class="logOut" align="right" style="display: none;">
-        <table>
-            <td><button onclick="logOut()">Đăng xuất</button></td>
-        </table>
-    </div>
-    <div class="Login" style="display: none;">
-        <table class="Login">
-            <tbody><tr>
-              <th width="15%"><label class="block" for="user_name">Tài khoản</label></th>
-              <td width="85%"><input tabindex="1" type="text" name="" id="user_name" required></td>
-            </tr>
-            <tr>
-              <th><label class="block" for="user_password">Mật khấu</label></th>
-              <td><input tabindex="1" type="password" name="" id="user_password" required></td>
-            </tr>
-            <tr>
-              <td><button class="button_login" onclick="login()">Đăng nhập</button></td>
-            </tr>
-          </tbody>
-        </table>
-    </div> -->
     <div class="home" style="display: block;">
-        <!-- <nav>
-            <ul>
-                <li><a href="#about">Giới thiệu</a></li>
-                <li><a href="#products">Sản phẩm</a></li>
-                <li><a href="#contact">Liên hệ</a></li>
-            </ul>
-        </nav> -->
         <main>
-        <!-- <section id="about">
-            <h2>Giới thiệu</h2>
-            <p>Chào mừng đến với trang web bán máy ảnh của chúng tôi. Chúng tôi cung cấp các loại máy ảnh chất lượng cao với giá cả phải chăng. Chúng tôi cam kết cung cấp sản phẩm chính hãng và đảm bảo chất lượng sản phẩm.</p>
-        </section id="products">
-            <h2>Sản phẩm</h2> -->
             <div align="center">
                 <button class="btn admin_btn">Admin</button>
                 <button class="btn user_btn">User</button>
@@ -86,57 +55,57 @@
             <!-- </form> -->
             </div>
             <!-- Sản Phẩm -->
-            <div id="san_pham">
+            <div class="grid" id="san_pham">
                 <div class="sanPham" align="center">
-                    <img src="/image/Ai Sayama.jpg" alt="Máy ảnh Canon EOS 80D" class="img_sp link_anh">
-                    <div class="thong_tin">
+                    <img src="./image/Ai Sayama.jpg" alt="Máy ảnh Canon EOS 80D" class="img_sp link_anh">
+                    <div class="thongTin">
                         <h3 class="ten_sp">Máy ảnh Canon EOS 80D</h3>
-                        <p class="sl">Số lượng: </p><p class="sl sl_value">1</p><br>
-                        <p class="gia">Giá: </p><p class="gia gia_value">21.000.000</p><p class="gia"> đ</p>
+                        <p class="sl">Số lượng:&nbsp;</p><p class="sl sl_value">1</p><br>
+                        <p class="gia">Giá:&nbsp;</p><p class="gia gia_value">21.000.000</p><p class="gia">&nbsp;đ</p>
                         <button class="btn mua_btn" style="display: none;">Mua hàng</button>
                         <button class="btn xoa_btn"  style="display: none;">Xóa hàng</button>
                         <button class="btn sua_btn"  style="display: none;">Sửa hàng</button>
                     </div>
                 </div>
                 <div class="sanPham" align="center">
-                    <img src="/image/Kanako Ioka.jpg" alt="Máy ảnh Nikon D750" class="img_sp link_anh">
-                    <div class="thong_tin">
+                    <img src="./image/Kanako Ioka.jpg" alt="Máy ảnh Nikon D750" class="img_sp link_anh">
+                    <div class="thongTin">
                         <h3 class="ten_sp">Máy ảnh Nikon D750</h3>
-                        <p class="sl">Số lượng: </p><p class="sl sl_value">1</p><br>
-                        <p class="gia">Giá: </p><p class="gia gia_value">20.000.000</p><p class="gia"> đ</p>
+                        <p class="sl">Số lượng:&nbsp;</p><p class="sl sl_value">1</p><br>
+                        <p class="gia">Giá:&nbsp;</p><p class="gia gia_value">20.000.000</p><p class="gia">&nbsp;đ</p>
                         <button class="btn mua_btn" style="display: none;">Mua hàng</button>
                         <button class="btn xoa_btn"  style="display: none;">Xóa hàng</button>
                         <button class="btn sua_btn"  style="display: none;">Sửa hàng</button>
                     </div>
                 </div>
                 <div class="sanPham" align="center">
-                    <img src="/image/Nene Tanaka.jpg" alt="Máy ảnh Sony Alpha a7 III" class="img_sp link_anh">
-                    <div class="thong_tin">
+                    <img src="./image/Nene Tanaka.jpg" alt="Máy ảnh Sony Alpha a7 III" class="img_sp link_anh">
+                    <div class="thongTin">
                         <h3 class="ten_sp">Máy ảnh Sony Alpha a7 III</h3>
-                        <p class="sl">Số lượng: </p><p class="sl sl_value">1</p><br>
-                        <p class="gia">Giá: </p><p class="gia gia_value">23.000.000</p><p class="gia"> đ</p>
+                        <p class="sl">Số lượng:&nbsp;</p><p class="sl sl_value">1</p><br>
+                        <p class="gia">Giá:&nbsp;</p><p class="gia gia_value">23.000.000</p><p class="gia">&nbsp;đ</p>
                         <button class="btn mua_btn" style="display: none;">Mua hàng</button>
                         <button class="btn xoa_btn"  style="display: none;">Xóa hàng</button>
                         <button class="btn sua_btn"  style="display: none;">Sửa hàng</button>
                     </div>
                 </div>
                 <div class="sanPham" align="center">
-                    <img src="/image/Shion Utsunomiya.jpg" alt="Máy ảnh Sony Omega a1 III" class="img_sp link_anh">
-                    <div class="thong_tin">
+                    <img src="./image/Shion Utsunomiya.jpg" alt="Máy ảnh Sony Omega a1 III" class="img_sp link_anh">
+                    <div class="thongTin">
                         <h3 class="ten_sp">Máy ảnh Sony Omega a1 III</h3>
-                        <p class="sl">Số lượng: </p><p class="sl sl_value">1</p><br>
-                        <p class="gia">Giá: </p><p class="gia gia_value">19.000.000</p><p class="gia"> đ</p>
+                        <p class="sl">Số lượng:&nbsp;</p><p class="sl sl_value">1</p><br>
+                        <p class="gia">Giá:&nbsp;</p><p class="gia gia_value">19.000.000</p><p class="gia">&nbsp;đ</p>
                         <button class="btn mua_btn" style="display: none;">Mua hàng</button>
                         <button class="btn xoa_btn"  style="display: none;">Xóa hàng</button>
                         <button class="btn sua_btn"  style="display: none;">Sửa hàng</button>
                     </div>
                 </div>
                 <div class="sanPham" align="center">
-                    <img src="/image/Megu Fujiura.jpg" alt="Máy ảnh Sony Alpha a50 I" class="img_sp link_anh">
-                    <div class="thong_tin">
+                    <img src="./image/Megu Fujiura.jpg" alt="Máy ảnh Sony Alpha a50 I" class="img_sp link_anh">
+                    <div class="thongTin">
                         <h3 class="ten_sp">Máy ảnh Sony Alpha a50 I</h3>
-                        <p class="sl">Số lượng: </p><p class="sl sl_value">1</p><br>
-                        <p class="gia">Giá: </p><p class="gia gia_value">25.000.000</p><p class="gia"> đ</p>
+                        <p class="sl">Số lượng:&nbsp;</p><p class="sl sl_value">1</p><br>
+                        <p class="gia">Giá:&nbsp;</p><p class="gia gia_value">25.000.000</p><p class="gia">&nbsp;đ</p>
                         <button class="btn mua_btn" style="display: none;">Mua hàng</button>
                         <button class="btn xoa_btn"  style="display: none;">Xóa hàng</button>
                         <button class="btn sua_btn"  style="display: none;">Sửa hàng</button>
@@ -160,10 +129,12 @@
             </form>
         </section>
         </main>
-        <footer>
+    </div>
+        <footer class="footer">
             <p>© Có cái đặc cầu!!!</p>
         </footer>
-    </div>
+</div>
     <script src="main.js"></script>
+
 </body>
 </html>

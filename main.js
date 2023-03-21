@@ -1,6 +1,7 @@
 // const Login = document.querySelector('.Login');
 // const home = document.querySelector('.home');
 // const button_login = document.querySelector('.button_login');
+const arrs = []
 const admin_btn = document.querySelector('.admin_btn');
 const user_btn = document.querySelector('.user_btn');
 const ad = document.querySelector('.ad');
@@ -81,7 +82,7 @@ insert_btn.onclick = function (){
 	Sua_btn.style.display = 'none'
 }
 
-const arrs = []
+
 
 var link_anh = document.getElementsByClassName('link_anh')
 var ten_sp = document.getElementsByClassName('ten_sp')
@@ -122,10 +123,10 @@ function them(){
 function them1(arrs){
 		return document.getElementById("san_pham").insertAdjacentHTML('beforeend', `<div class="sanPham" align="center">
 		<img src="${arrs.link_anh}" alt="${arrs.ten_sp}" class="img_sp link_anh">
-		<div class="thong_tin">
+		<div class="thongTin">
 			<h3 class="ten_sp">${arrs.ten_sp}</h3>
-			<p class="sl">Số lượng: </p><p class="sl sl_value">${arrs.so_luong}</p><br>
-			<p class="gia">Giá: </p><p class="gia gia_value">${arrs.gia}</p><p class="gia"> đ</p>
+			<p class="sl">Số lượng:&nbsp;</p><p class="sl sl_value">${arrs.so_luong}</p><br>
+			<p class="gia">Giá:&nbsp;</p><p class="gia gia_value">${arrs.gia}</p><p class="gia">&nbsp;đ</p>
 			<button class="btn mua_btn" style="display: none;">Mua hàng</button>
 			<button class="btn xoa_btn"  style="display: none;">Xóa hàng</button>
 			<button class="btn sua_btn"  style="display: none;">Sửa hàng</button>
@@ -160,18 +161,6 @@ function xoa_hang(){
 	})
 }
 
-edit_btn.onclick = function (){
-	var xoa_btn = Object.values(document.querySelectorAll('.xoa_btn'))
-	var xoa = xoa_btn.map(function(xoa){
-		return xoa.style.display = 'none';
-	})
-	var sua_btn = Object.values(document.querySelectorAll('.sua_btn'))
-	var sua = sua_btn.map(function(sua){
-		return sua.style.display = 'block';
-	})
-	insert.style.display = 'none';
-}
-
 function sua(){
 	var sua_btn = Object.values(document.querySelectorAll('.sua_btn'))
 	var arr = sua_btn.map(function(sua_btn, index){
@@ -195,17 +184,17 @@ function sua(){
 					arrs[index].ten_sp = document.getElementById("ten_sp").value
 					arrs[index].so_luong = document.getElementById("so_luong").value 
 					arrs[index].gia = document.getElementById("gia").value
-					document.getElementsByClassName('sanPham')[index].innerHTML = `<div class="sanPham" align="center">
-					<img src="${arrs[index].link_anh}" alt="${arrs[index].ten_sp}" class="img_sp link_anh">
-					<div class="thong_tin">
-						<h3 class="ten_sp">${arrs[index].ten_sp}</h3>
-						<p class="sl">Số lượng: </p><p class="sl sl_value">${arrs[index].so_luong}</p><br>
-						<p class="gia">Giá: </p><p class="gia gia_value">${arrs[index].gia}</p><p class="gia"> đ</p>
-						<button class="btn mua_btn" style="display: none;">Mua hàng</button>
-						<button class="btn xoa_btn"  style="display: none;">Xóa hàng</button>
-						<button class="btn sua_btn"  style="display: block;">Sửa hàng</button>
-					</div>
-				</div>`
+					document.getElementsByClassName('sanPham')[index].outerHTML = `<div class="sanPham" align="center">
+                    <img src="${arrs[index].link_anh}" alt="${arrs[index].ten_sp}" class="img_sp link_anh">
+                    <div class="thongTin">
+                        <h3 class="ten_sp">${arrs[index].ten_sp}</h3>
+                        <p class="sl">Số lượng:&nbsp;</p><p class="sl sl_value">${arrs[index].so_luong}</p><br>
+                        <p class="gia">Giá:&nbsp;</p><p class="gia gia_value">${arrs[index].gia}</p><p class="gia">&nbsp;đ</p>
+                        <button class="btn mua_btn" style="display: none;">Mua hàng</button>
+                        <button class="btn xoa_btn"  style="display: none;">Xóa hàng</button>
+                        <button class="btn sua_btn"  style="display: block;">Sửa hàng</button>
+                    </div>
+                </div>`
 				}
 				document.getElementById("link_anh").value = ""
 				document.getElementById("ten_sp").value = ""
@@ -214,8 +203,19 @@ function sua(){
 				insert.style.display = 'none';
 				sua()
 			}
-			
 		}
 	})
 }
-sua()
+
+edit_btn.onclick = function (){
+	var xoa_btn = Object.values(document.querySelectorAll('.xoa_btn'))
+	var xoa = xoa_btn.map(function(xoa){
+		return xoa.style.display = 'none';
+	})
+	var sua_btn = Object.values(document.querySelectorAll('.sua_btn'))
+	var arr = sua_btn.map(function(sua){
+		return sua.style.display = 'block';
+	})
+	insert.style.display = 'none';
+	sua()
+}
