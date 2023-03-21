@@ -11,15 +11,6 @@ const erase_btn = document.querySelector('.erase_btn');
 const edit_btn = document.querySelector('.edit_btn');
 const Them_btn = document.querySelector('.Them_btn');
 const Sua_btn = document.querySelector('.Sua_btn');
-const header_ul_li1 = document.querySelector('.header_ul-li1');
-const roll = document.querySelector('.roll');
-
-header_ul_li1.onmouseenter = function (){
-	roll.style.display = 'block';
-	header_ul_li1.onmouseleave = function (){
-		roll.style.display = 'none';
-	}
-}
 
 function login1(){
 	document.querySelector('.home').style.display = 'none';
