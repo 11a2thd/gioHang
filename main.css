@@ -23,6 +23,14 @@ header{
     flex-direction: row-reverse;    
 }
 
+.roll{
+    position: absolute;
+    width: 200px;
+    left: 64px;
+    top: 44px;
+    display: none;
+}
+
 .nav{
     display: flex;
     justify-content: space-between  ;
@@ -41,6 +49,14 @@ header{
 
 .header_ul-li2{
     font-weight: 600;
+}
+.header_ul-li2:hover{
+    opacity: 0.7;
+    cursor: pointer;
+}
+.header_ul-li1:hover{
+    opacity: 0.7;
+    cursor: pointer;
 }
 
 .header_ul-li1{
