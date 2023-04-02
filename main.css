@@ -80,6 +80,13 @@ max-width: 100%;
 margin: 0 auto;
 }
 
+.grid_row{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -12px;
+    margin-right: -12px;
+}
+
 h1 {
 text-align: center;
 color: aqua;
@@ -201,11 +208,9 @@ flex-basis: 20%;
 }
 
 .img_sp{
-max-width: 100%;
-height: auto;
-display: block;
-border: 0;
-
+    padding-top: 145%;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .thongTin{

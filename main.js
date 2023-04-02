@@ -28,6 +28,17 @@ function login(){
 	else confirm('Có cái tài khoản/mật khẩu cũng đéo nhớ được.')
 }
 
+const tabs = $$(".tab-item");
+const panes = $$(".tab-pane");
+
+const tabActive = $(".tab-item.active");
+const line = $(".tabs .line");
+
+requestIdleCallback(function () {
+  line.style.left = tabActive.offsetLeft + "px";
+  line.style.width = tabActive.offsetWidth + "px";
+});
+
 admin_btn.onclick = function (){
 	var mua_btn = Object.values($$('.mua_btn'))
 	var mua = mua_btn.map(function(mua){
@@ -36,6 +47,17 @@ admin_btn.onclick = function (){
 	admin_btn.style.display = 'none';
 	chucNang.style.display = 'block';
 	user_btn.style.display = 'block';
+	if($('.insert') != null){ $('.insert').remove() }
+	tabs.forEach((tab) => {
+		$(".tab-pane.active").classList.remove("active");
+	  
+		line.style.left = this.offsetLeft + "px";
+		line.style.width = this.offsetWidth + "px";
+	  
+		this.classList.add("active");
+		panes[0].classList.add("active");
+	
+	})
 }
 
 user_btn.onclick = function (){
@@ -61,17 +83,6 @@ user_btn.onclick = function (){
 		return sua.style.display = 'none';
 	})
 }
-
-const tabs = $$(".tab-item");
-const panes = $$(".tab-pane");
-
-const tabActive = $(".tab-item.active");
-const line = $(".tabs .line");
-
-requestIdleCallback(function () {
-  line.style.left = tabActive.offsetLeft + "px";
-  line.style.width = tabActive.offsetWidth + "px";
-});
 
 tabs.forEach((tab, index) => {
   const pane = panes[index];
@@ -138,6 +149,7 @@ tabs.forEach((tab, index) => {
 			break;
 		}
 		case 2:{
+			if($('.insert') != null){ $('.insert').remove() }
 			var xoa_btn = Object.values($$('.xoa_btn'))
 			var xoa = xoa_btn.map(function(xoa){
 				return xoa.style.display = 'none';
@@ -163,7 +175,7 @@ var gia = document.getElementsByClassName('gia_value')
 
 for(var i = 0; i < ten_sp.length; i++){
 	arrs.push({
-		link_anh: link_anh[i].src,
+		link_anh: link_anh[i].style.backgroundImage.slice(5, -2),
 		ten_sp: ten_sp[i].innerHTML,
 		so_luong: so_luong[i].innerHTML,
 		gia: gia[i].innerHTML,
@@ -193,8 +205,8 @@ function them(){
 }
 
 function them1(arrs){
-		return document.getElementById("san_pham").insertAdjacentHTML('beforeend', `<div class="sanPham" align="center">
-		<img src="${arrs.link_anh}" alt="${arrs.ten_sp}" class="img_sp link_anh">
+		return document.getElementById("san_pham").insertAdjacentHTML('beforeend', `<div class="sanPham align="center">
+		<div class="img_sp link_anh" style="background-image: url(${arrs.link_anh});" alt="${arrs.ten_sp}"></div>
 		<div class="thongTin">
 			<h3 class="ten_sp">${arrs.ten_sp}</h3>
 			<p class="sl">Số lượng:&nbsp;</p><p class="sl sl_value">${arrs.so_luong}</p><br>
@@ -264,7 +276,7 @@ function Sua(){
 					arrs[index].so_luong = document.getElementById("so_luong").value 
 					arrs[index].gia = document.getElementById("gia").value
 					document.getElementsByClassName('sanPham')[index].outerHTML = `<div class="sanPham" align="center">
-                    <img src="${arrs[index].link_anh}" alt="${arrs[index].ten_sp}" class="img_sp link_anh">
+					<div class="img_sp link_anh" style="background-image: url(${arrs[index].link_anh});" alt="${arrs[index].ten_sp}"></div>
                     <div class="thongTin">
                         <h3 class="ten_sp">${arrs[index].ten_sp}</h3>
                         <p class="sl">Số lượng:&nbsp;</p><p class="sl sl_value">${arrs[index].so_luong}</p><br>
