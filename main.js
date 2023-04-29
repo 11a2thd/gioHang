@@ -16,6 +16,8 @@ function login1(){
 	document.querySelector('.Login').style.display = 'block';
 }
 
+
+
 function login(){
 	var userName = document.getElementById("user_name").value
 	var passWord = document.getElementById("user_password").value
@@ -41,8 +43,12 @@ requestIdleCallback(function () {
 
 admin_btn.onclick = function (){
 	var mua_btn = Object.values($$('.mua_btn'))
-	var mua = mua_btn.map(function(mua){
+	mua_btn.forEach(function(mua){
 		return mua.style.display = 'none'
+	})
+	var GH_btn = Object.values($$('.GH_btn'))
+	GH_btn.forEach(function(GH){
+		return GH.style.display = 'none'
 	})
 	admin_btn.style.display = 'none';
 	chucNang.style.display = 'block';
@@ -62,26 +68,31 @@ admin_btn.onclick = function (){
 
 user_btn.onclick = function (){
 	var mua_btn = Object.values($$('.mua_btn'))
-	var mua = mua_btn.map(function(mua){
+	mua_btn.forEach(function(mua){
 		return mua.style.display = 'block'
+	})
+	var GH_btn = Object.values($$('.GH_btn'))
+	GH_btn.forEach(function(GH){
+		return GH.style.display = 'block'
 	})
 	admin_btn.style.display = 'block';
 	chucNang.style.display = 'none';
 	user_btn.style.display = 'none';
 
-	var mua = mua_btn.map(function(mua){
+	mua_btn.forEach(function(mua){
 		mua.onclick = function (){
 			confirm('Có cái con cặc!!!')
 		}
 	})
 	var xoa_btn = Object.values($$('.xoa_btn'))
-	var xoa = xoa_btn.map(function(xoa){
+	xoa_btn.forEach(function(xoa){
 		return xoa.style.display = 'none';
 	})
 	var sua_btn = Object.values($$('.sua_btn'))
-	var sua = sua_btn.map(function(sua){
+	sua_btn.forEach(function(sua){
 		return sua.style.display = 'none';
 	})
+	themVaoGioHang()
 }
 
 tabs.forEach((tab, index) => {
@@ -100,11 +111,11 @@ tabs.forEach((tab, index) => {
 	switch(index){
 		case 0:{
 			var xoa_btn = Object.values($$('.xoa_btn'))
-			var xoa = xoa_btn.map(function(xoa){
+			xoa_btn.forEach(function(xoa){
 				return xoa.style.display = 'none';
 			})
 			var sua_btn = Object.values($$('.sua_btn'))
-			var sua = sua_btn.map(function(sua){
+			sua_btn.forEach(function(sua){
 				return sua.style.display = 'none';
 			})
 			if($('.insert') != null){ $('.insert').remove() }
@@ -134,15 +145,15 @@ tabs.forEach((tab, index) => {
 		}
 		case 1:{
 			var mua_btn = Object.values($$('.mua_btn'))
-			var mua = mua_btn.map(function(mua){
+			mua_btn.forEach(function(mua){
 				return mua.style.display = 'none'
 			})
 			var xoa_btn = Object.values($$('.xoa_btn'))
-			var xoa = xoa_btn.map(function(xoa){
+			xoa_btn.forEach(function(xoa){
 				return xoa.style.display = 'block'
 			})
 			var sua_btn = Object.values($$('.sua_btn'))
-			var sua = sua_btn.map(function(sua){
+			sua_btn.forEach(function(sua){
 				return sua.style.display = 'none';
 			})
 			xoa_hang()
@@ -151,11 +162,11 @@ tabs.forEach((tab, index) => {
 		case 2:{
 			if($('.insert') != null){ $('.insert').remove() }
 			var xoa_btn = Object.values($$('.xoa_btn'))
-			var xoa = xoa_btn.map(function(xoa){
+			xoa_btn.forEach(function(xoa){
 				return xoa.style.display = 'none';
 			})
 			var sua_btn = Object.values($$('.sua_btn'))
-			var arr = sua_btn.map(function(sua){
+			sua_btn.forEach(function(sua){
 				return sua.style.display = 'block';
 			})
 			Sua()
@@ -190,11 +201,14 @@ function them(){
 		return confirm("Điền số liệu!!!")
 	}
 	else{
+		var gia = String(document.getElementById("gia").value)
+		for(var i = gia.length - 3; i > 0; i -= 3)
+		gia = gia.slice(0, i) + '.' + gia.slice(i)
 		arrs.push({
 			link_anh: `${document.getElementById("link_anh").value}`,
 			ten_sp: `${document.getElementById("ten_sp").value}`,
 			so_luong: `${document.getElementById("so_luong").value}`,
-			gia: `${document.getElementById("gia").value}`
+			gia: gia
 		})
 	}
 	them1(arrs[arrs.length - 1])
@@ -205,16 +219,16 @@ function them(){
 }
 
 function them1(arrs){
-		return document.getElementById("san_pham").insertAdjacentHTML('beforeend', `<div class="sanPham align="center">
-		<div class="img_sp link_anh" style="background-image: url(${arrs.link_anh});" alt="${arrs.ten_sp}"></div>
-		<div class="thongTin">
-			<h3 class="ten_sp">${arrs.ten_sp}</h3>
-			<p class="sl">Số lượng:&nbsp;</p><p class="sl sl_value">${arrs.so_luong}</p><br>
-			<p class="gia">Giá:&nbsp;</p><p class="gia gia_value">${arrs.gia}</p><p class="gia">&nbsp;đ</p>
-			<button class="btn mua_btn" style="display: none;">Mua hàng</button>
-			<button class="btn xoa_btn"  style="display: none;">Xóa hàng</button>
-			<button class="btn sua_btn"  style="display: none;">Sửa hàng</button>
-		</div>
+	return document.getElementById("san_pham").insertAdjacentHTML('beforeend', `<div class="sanPham" align="center">
+	<div class="img_sp link_anh" style="background-image: url(${arrs.link_anh});"></div>
+	<div class="thongTin">
+		<h3 class="ten_sp">${arrs.ten_sp}</h3>
+		<p class="sl">Số lượng:&nbsp;</p><p class="sl sl_value">${arrs.so_luong}</p><br>
+		<p class="gia">Giá:&nbsp;</p><p class="gia gia_value">${arrs.gia}</p><p class="gia">&nbsp;đ</p>
+		<button class="btn mua_btn" style="display: none;">Mua hàng</button>
+		<button class="btn GH_btn" style="display: none;">Thêm vào giỏ hàng</button>
+		<button class="btn xoa_btn"  style="display: none;">Xóa hàng</button>
+		<button class="btn sua_btn"  style="display: none;">Sửa hàng</button>
 	</div>`) 
 }
 
@@ -224,7 +238,7 @@ function them1(arrs){
 
 function xoa_hang(){
 	var xoa_btn = Object.values($$('.xoa_btn'))
-	var arr = xoa_btn.map(function(xoa_btn, index){
+	xoa_btn.forEach(function(xoa_btn, index){
 		xoa_btn.onclick = function (){
 			document.getElementsByClassName('sanPham')[index].remove()
 			arrs.splice(index, 1)
@@ -235,7 +249,7 @@ function xoa_hang(){
 
 function Sua(){
 	var sua_btn = Object.values($$('.sua_btn'))
-	var arr = sua_btn.map(function(sua_btn, index){
+	sua_btn.forEach(function(sua_btn, index){
 		sua_btn.onclick = function (){
 			if($('.insert') != null){ $('.insert').remove() }
 			document.getElementById("edit_id").insertAdjacentHTML('beforeend', `<div class="insert">
@@ -262,7 +276,14 @@ function Sua(){
 			document.getElementById("link_anh").value = `${arrs[index].link_anh}`
 			document.getElementById("ten_sp").value = `${arrs[index].ten_sp}`
 			document.getElementById("so_luong").value = `${arrs[index].so_luong}`
-			document.getElementById("gia").value = `${arrs[index].gia}`
+			var gia = '', e = 0
+			for(var j = 0; j < arrs[index].gia.length; j++)
+			if(arrs[index].gia[j] === '.'){
+				gia += arrs[index].gia.slice(e, j)
+				e = j + 1
+			}
+			gia += arrs[index].gia.slice(e, arrs[index].gia.length)
+			document.getElementById("gia").value = `${gia}`
 			$('.Sua_btn').onclick = function (){
 				if(document.getElementById("ten_sp").value === '' || 
 				document.getElementById("link_anh").value === '' || 
@@ -273,19 +294,23 @@ function Sua(){
 				else{
 					arrs[index].link_anh = document.getElementById("link_anh").value 
 					arrs[index].ten_sp = document.getElementById("ten_sp").value
-					arrs[index].so_luong = document.getElementById("so_luong").value 
-					arrs[index].gia = document.getElementById("gia").value
+					arrs[index].so_luong = document.getElementById("so_luong").value
+					var gia = String(document.getElementById("gia").value)
+					for(var i = gia.length - 3; i > 0; i -= 3)
+					gia = gia.slice(0, i) + '.' + gia.slice(i)
+					arrs[index].gia = gia
 					document.getElementsByClassName('sanPham')[index].outerHTML = `<div class="sanPham" align="center">
-					<div class="img_sp link_anh" style="background-image: url(${arrs[index].link_anh});" alt="${arrs[index].ten_sp}"></div>
-                    <div class="thongTin">
-                        <h3 class="ten_sp">${arrs[index].ten_sp}</h3>
-                        <p class="sl">Số lượng:&nbsp;</p><p class="sl sl_value">${arrs[index].so_luong}</p><br>
-                        <p class="gia">Giá:&nbsp;</p><p class="gia gia_value">${arrs[index].gia}</p><p class="gia">&nbsp;đ</p>
-                        <button class="btn mua_btn" style="display: none;">Mua hàng</button>
-                        <button class="btn xoa_btn"  style="display: none;">Xóa hàng</button>
-                        <button class="btn sua_btn"  style="display: block;">Sửa hàng</button>
-                    </div>
-                </div>`
+				<div class="img_sp link_anh" style="background-image: url(${arrs[index].link_anh});" ></div>
+				<div class="thongTin">
+					<h3 class="ten_sp">${arrs[index].ten_sp}</h3>
+					<p class="sl">Số lượng:&nbsp;</p><p class="sl sl_value">${arrs[index].so_luong}</p><br>
+					<p class="gia">Giá:&nbsp;</p><p class="gia gia_value">${arrs[index].gia}</p><p class="gia">&nbsp;đ</p>
+					<button class="btn mua_btn" style="display: none;">Mua hàng</button>
+					<button class="btn GH_btn" style="display: none;">Thêm vào giỏ hàng</button>
+					<button class="btn xoa_btn"  style="display: none;">Xóa hàng</button>
+					<button class="btn sua_btn"  style="display: block;">Sửa hàng</button>
+				</div>
+			</div>`
 				}
 				document.getElementById("link_anh").value = ""
 				document.getElementById("ten_sp").value = ""
@@ -318,6 +343,57 @@ function Sua(){
 		}
 	})
 }
+
+function themVaoGioHang(){
+	var GH_btn = Object.values($$('.GH_btn'))
+	GH_btn.forEach(function(GH_btn, index){
+		GH_btn.onclick = function (){
+			document.getElementById("sanPhamGH").insertAdjacentHTML('beforeend', `<tr>
+			<td style="display: flex; align-items: center;"><img style="width: 80px;" src="${arrs[index].link_anh}" alt="Lỗi!!!">${arrs[index].ten_sp}</td>
+			<td><p><span>${arrs[index].gia}</span><sup>đ</sup></td>
+			<td><input style="width: 35px;outline: none;" type="number" value="1" min="1" max="${arrs[index].so_luong}"></td>
+			<td style="cursor: pointer;">Xóa</td>
+			</tr>`)
+			tongTien()
+			var soLuong = $$('#gioHang table tbody input')
+			soLuong.forEach(function(soLuong, index){
+				soLuong.onchange = function(){ tongTien() }
+			})
+		}
+	})
+}
+themVaoGioHang()
+
+var soLuong = $$('#gioHang table tbody input')
+soLuong.forEach(function(soLuong, index){
+	soLuong.onchange = function(){ tongTien() }
+})
+
+function tongTien(){
+	var soLuong = $$('#gioHang table tbody input')
+	var b = $$('#gioHang table tbody span')
+	
+	var tongTien = 0
+	for(var i = 0; i < soLuong.length; i++){
+		var c = b[i].innerHTML
+		var gia = '', e = 0
+		for(var j = 0; j < c.length; j++)
+		if(c[j] === '.'){
+			gia += c.slice(e, j)
+			e = j + 1
+		}
+		gia += c.slice(e, c.length)
+		tongTien += (gia * soLuong[i].value)
+	}
+	tongTien = String(tongTien)
+	for(var i = tongTien.length - 3; i > 0; i -= 3)
+	tongTien = tongTien.slice(0, i) + '.' + tongTien.slice(i)
+
+	if($$('.tongTien')[1] != null){ $$('.tongTien')[1].remove() }
+	$('.tongTien').insertAdjacentHTML('afterend', `<td class="tongTien"><p><span>${tongTien}</span><sup>đ</sup></td>`)
+}
+tongTien()
+
 //--------------------
 
 
