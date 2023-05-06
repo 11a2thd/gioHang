@@ -175,17 +175,13 @@ button{
     border: none;
     outline: none;
     color: #fff;
-    padding: 12px 48px;
+    padding: 12px 24px;
     border-radius: 50px;
     cursor: pointer;
     transition: opacity .2s linear;
     min-width: 50px;
     font-size: 15px;
-    margin: 5px 5px;
-}
-
-.btn + .btn{
-    margin-left: 10px;
+    margin: 2px 2px;
 }
 
 .btn_disabled{
@@ -201,18 +197,14 @@ button:hover{ opacity: 0.6; }
     flex-wrap: wrap;
 }
 
+.btn{
+    font-size: 13px;
+}
 
 .sanPham{
     float: left;
     padding: 10px;
     flex-basis: 20%;
-}
-
-.nut{
-    align-items: center;
-    display: flex;
-    flex-wrap: wrap;
-    flex-basis: 50%;
 }
 
 .img_sp{

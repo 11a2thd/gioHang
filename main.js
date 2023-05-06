@@ -1,9 +1,13 @@
-// const Login = document.querySelector('.Login');
-// const home = document.querySelector('.home');
-// const button_login = document.querySelector('.button_login');
 const arrs = []
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
+
+$('.header_ul-li1').onmouseover = function(){
+	$('.roll').style.display = 'block'
+	$('.header_ul-li1').onmouseout = function(){
+		$('.roll').style.display = 'none'
+	}
+}
 
 var link_anh = document.getElementsByClassName('link_anh')
 var ten_sp = document.getElementsByClassName('ten_sp')
@@ -21,25 +25,38 @@ for(var i = 0; i < ten_sp.length; i++){
 
 function themVaoGioHang(){
 	var GH_btn = Object.values($$('.GH_btn'))
-	GH_btn.forEach(function(GH_btn, index){
+	GH_btn.forEach(function(GH_btn, indexGH){
 		GH_btn.onclick = function (){
+			var hang = $$('#sanPhamGH tr td:first-child')
+			var sl = $$('#sanPhamGH input')
+			for(var i = 0; i < hang.length; i++){
+				if(hang[i].innerText === arrs[indexGH].ten_sp && sl[i].value < arrs[indexGH].so_luong){
+					return sl[i].value++
+				}
+				if(hang[i].innerText === arrs[indexGH].ten_sp && sl[i].value === arrs[indexGH].so_luong){
+					return confirm('Số lượng hàng tối đa!!!')
+				}
+			}
+
+			
 			document.getElementById("sanPhamGH").insertAdjacentHTML('beforeend', `<tr>
-			<td style="display: flex; align-items: center;"><img style="width: 80px;" src="${arrs[index].link_anh}" alt="Lỗi!!!">${arrs[index].ten_sp}</td>
-			<td><p><span>${arrs[index].gia}</span><sup>đ</sup></td>
-			<td><input style="width: 35px;outline: none;" type="number" value="1" min="1" max="${arrs[index].so_luong}"></td>
+			<td style="display: flex; align-items: center;"><img style="width: 80px;" src="${arrs[indexGH].link_anh}" alt="Lỗi!!!">${arrs[indexGH].ten_sp}</td>
+			<td><p><span>${arrs[indexGH].gia}</span><sup>đ</sup></td>
+			<td><input style="width: 35px;outline: none;" type="number" value="1" min="1" max="${arrs[indexGH].so_luong}"></td>
 			<td style="cursor: pointer;">Xóa</td>
 			</tr>`)
 			tongTien()
 			var soLuong = $$('#gioHang table tbody input')
-			soLuong.forEach(function(soLuong, index){
+			soLuong.forEach(function(soLuong){
 				soLuong.onchange = function(){ tongTien() }
 			})
+			xoa()
 		}
 	})
 }
 themVaoGioHang()
 
-var soLuong = $$('#gioHang table tbody input')
+var soLuong = $$('#sanPhamGH input')
 soLuong.forEach(function(soLuong, index){
 	soLuong.onchange = function(){ tongTien() }
 })
@@ -69,8 +86,16 @@ function tongTien(){
 }
 tongTien()
 
-//--------------------
-
-
-
+function xoa(){
+	var hang = $$('#gioHang table tbody tr td:last-child')
+	var a = $$('#gioHang table tbody tr')
+	hang.forEach(function(hang, index){
+		hang.onclick = function (){
+			a[index].remove()
+			xoa()
+			tongTien()
+		}
+	})
+}
+xoa()
 
