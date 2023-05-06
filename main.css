@@ -148,6 +148,26 @@ label{
     margin-bottom: 3px;
 }
 
+.them_btn{
+    margin-top: 18px;
+}
+
+.sua_btn{
+    margin-top: 18px;
+}
+
+.block{
+    color: azure;
+}
+
+.home, .logout{
+    margin-top: 60px;
+}
+
+.Login{
+    margin-top: 100px;
+}
+
 button{
     display: inline-block;
     text-decoration: none;
@@ -185,12 +205,7 @@ button:hover{ opacity: 0.6; }
 .sanPham{
     float: left;
     padding: 10px;
-    flex-basis: 20%;
-}
-
-.nut{
-    float: center;
-    flex-basis: 50%;
+    flex-basis: 25%;
 }
 
 .img_sp{
