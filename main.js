@@ -9,6 +9,14 @@ $('.header_ul-li1').onmouseover = function(){
 	}
 }
 
+$('.header_Gh').onclick = function(){
+	$('#gioHang').style.display = 'block'
+}
+
+$('#gioHang p').onclick = function(){
+	$('#gioHang').style.display = 'none'
+}
+
 var link_anh = document.getElementsByClassName('link_anh')
 var ten_sp = document.getElementsByClassName('ten_sp')
 var so_luong = document.getElementsByClassName('sl_value')
